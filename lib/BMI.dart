@@ -335,9 +335,3 @@ class _BMIState extends State<BMI> {
     );
   }
 }
-
-// Doubts:- 
-// Icon at center ?
-// Extract logic
-// Fade full Row after click
-// Change Color of text
