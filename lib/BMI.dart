@@ -14,11 +14,43 @@ class _BMIState extends State<BMI> {
   var check = false;
   var result = 0.0;
   var category = '';
+  var categoryColor = Colors.white;
   var weight = TextEditingController();
   var ftHeight = TextEditingController();
   var inchHeight = TextEditingController();
   var cmHeight = TextEditingController();
 
+
+ void updateUI ()
+ {
+    if (check == false) {
+                          var ftIntome = int.parse(ftHeight.text) / 3.281;
+                          var inchIntome = int.parse(inchHeight.text) / 39.37;
+                          var sum = ftIntome + inchIntome;
+                          var result2 = int.parse(weight.text) / pow(sum, 2);
+                          result = double.parse(result2.toStringAsFixed(2));
+                          if (result > 25) {
+                            category = 'Overweight';
+                          } else if (result >= 18 && result <= 25) {
+                            category = 'Normal';
+                          } else if (result < 18) {
+                            category = 'Underweight';
+                          }
+                        } else if (check == true) {
+                          var sum = double.parse(cmHeight.text) / 100;
+                          var result2 = int.parse(weight.text) / pow(sum, 2);
+                          result = double.parse(result2.toStringAsFixed(2));
+                          if (result > 25) {
+                            category = 'Overweight';
+                          } else if (result >= 18 && result <= 25) {
+                            category = 'Normal';
+                            categoryColor = Colors.green;
+                          } else if (result < 18) {
+                            category = 'Underweight';
+                            categoryColor = Colors.yellow;
+                          }
+                        }
+ }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,6 +75,7 @@ class _BMIState extends State<BMI> {
                 style: TextStyle(color: Colors.grey),
               ),
               SizedBox(height: 70),
+              // --------------- LOGO END--------------------------------
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 12.0),
                 child: Row(
@@ -80,63 +113,53 @@ class _BMIState extends State<BMI> {
               ),
               SizedBox(height: 30),
               // ----------------- Weight END--------------
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  // Container(
-                  // padding: EdgeInsets.all(5),
-                  // decoration: BoxDecoration(
-                  //   border: Border.all(
-                  //     width: 1,
-                  //     color: Colors.white,
-                  //   ),
-                  //   borderRadius: BorderRadius.circular(5),
-                  // ),
-                  // child:
-                  Column(
-                    children: [
-                      Text(
-                        'Click If you want to entre',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                          fontSize: 15,
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          'Click If you want to entre',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 15,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'your height into centimeters',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
+                        Text(
+                          'your height into centimeters',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  // ),
-                  SizedBox(width: 70),
-                  Container(
-                    // padding: EdgeInsets.only(right: 50),
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: check ? Colors.blue : Colors.white,
-                        border: Border.all(width: 1),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: IconButton(
-                      // alignment: Alignment.center,
-                      iconSize: 25,
-                      onPressed: () {
-                        setState(() {
-                          check = !check;
-                        });
-                      },
-                      icon: Icon(
-                        Icons.check,
-                        color: check ? Colors.white : Colors.black,
+                      ],
+                    ),
+                    SizedBox(width: 70),
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: check ? Colors.blue : Colors.white,
+                          border: Border.all(width: 1),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: IconButton(
+                        // alignment: Alignment.center,
+                        iconSize: 15,
+                        onPressed: () {
+                          setState(() {
+                            check = !check;
+                          });
+                        },
+                        icon: Icon(
+                          Icons.check,
+                          color: check ? Colors.white : Colors.black,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(height: 30),
               Padding(
@@ -236,31 +259,7 @@ class _BMIState extends State<BMI> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        if (check == false) {
-                          var ftIntome = int.parse(ftHeight.text) / 3.281;
-                          var inchIntome = int.parse(inchHeight.text) / 39.37;
-                          var sum = ftIntome + inchIntome;
-                          var result2 = int.parse(weight.text) / pow(sum, 2);
-                          result = double.parse(result2.toStringAsFixed(2));
-                          if (result > 25) {
-                            category = 'Overweight';
-                          } else if (result >= 18 && result <= 25) {
-                            category = 'Normal';
-                          } else if (result < 18) {
-                            category = 'Underweight';
-                          }
-                        } else if (check == true) {
-                          var sum = double.parse(cmHeight.text) / 100;
-                          var result2 = int.parse(weight.text) / pow(sum, 2);
-                          result = double.parse(result2.toStringAsFixed(2));
-                          if (result > 25) {
-                            category = 'Overweight';
-                          } else if (result >= 18 && result <= 25) {
-                            category = 'Normal';
-                          } else if (result < 18) {
-                            category = 'Underweight';
-                          }
-                        }
+                      updateUI();
                       });
                     },
                     child: Text(
@@ -319,7 +318,7 @@ class _BMIState extends State<BMI> {
                     Text(
                       '$category',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: categoryColor,
                         fontFamily: 'Poppins',
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -328,6 +327,7 @@ class _BMIState extends State<BMI> {
                   ],
                 ),
               )
+              // ---------------- Result END--------------------------
             ],
           ),
         ),
@@ -335,3 +335,9 @@ class _BMIState extends State<BMI> {
     );
   }
 }
+
+// Doubts:- 
+// Icon at center ?
+// Extract logic
+// Fade full Row after click
+// Change Color of text
