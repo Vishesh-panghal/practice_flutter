@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, non_constant_identifier_names, use_key_in_widget_constructors, unused_import
 
 import 'package:authentication_pages/BMI.dart';
+import 'package:authentication_pages/whatsapp_bulk_msg.dart';
 import 'package:flutter/material.dart';
 import 'signup.dart';
 import 'tip_calcuator.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BMI(),
+      home: tip_Calculator(),
     );
   }
 }

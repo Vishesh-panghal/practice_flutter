@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 
 class tip_Calculator extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -117,7 +116,7 @@ class tip_Calculator extends StatelessWidget {
               ),
             ),
             SizedBox(height: 70),
-    //  ------------Card END:-----------
+            //  ------------Card END:-----------
             Padding(
               padding: const EdgeInsets.only(left: 28.0),
               child: Row(
@@ -144,23 +143,41 @@ class tip_Calculator extends StatelessWidget {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 30.0, right: 8.0),
-                      child: TextField(
-                        controller: TextEditingController(),
-                        decoration: InputDecoration(
-                          prefixText: '\$',
-                          // filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(4),
-                            borderSide: BorderSide(color: Colors.black),
+                        padding: const EdgeInsets.only(left: 30.0, right: 8.0),
+                        child: Container(
+                          decoration: BoxDecoration(border: Border.all(width: .4,),
+                          borderRadius: BorderRadius.circular(8),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(4),
-                            borderSide: BorderSide(color: Colors.black),
+                          child: Row(
+                            children: [
+                              Text(
+                                '\$',
+                                style: TextStyle(
+                                  fontSize: 32,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Expanded(
+                                child: TextField(
+                                  controller: TextEditingController(),
+                                  decoration: InputDecoration(
+                                    prefixText: '\$',
+                                    // filled: true,
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.circular(4),
+                                      borderSide: BorderSide(color: Colors.black),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(4),
+                                      borderSide: BorderSide(color: Colors.black),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ),
-                    ),
+                        )),
                   ),
                 ],
               ),
