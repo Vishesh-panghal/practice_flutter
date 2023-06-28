@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class WhatsSend extends StatefulWidget {
-  const WhatsSend({Key? key}) : super(key: key);
+class contacts extends StatefulWidget {
+  const contacts({Key? key}) : super(key: key);
 
   @override
-  State<WhatsSend> createState() => _WhatsSendState();
+  State<contacts> createState() => _contactsState();
 }
 
-class _WhatsSendState extends State<WhatsSend> {
+class _contactsState extends State<contacts> {
   List<Map<String, dynamic>> contacts = [
     {'name': 'Alex', 'status': 'Brother', 'isFav': false},
     {'name': 'Jerry', 'status': 'Friend', 'isFav': false},
