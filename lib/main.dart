@@ -3,6 +3,10 @@
 import 'package:authentication_pages/BMI.dart';
 import 'package:authentication_pages/contacts.dart';
 import 'package:flutter/material.dart';
+import 'implicit_animations/Container.dart';
+import 'implicit_animations/Crossfade.dart';
+import 'implicit_animations/file.dart';
+import 'implicit_animations/opacity.dart';
 import 'signup.dart';
 import 'tip_calcuator.dart';
 import 'calculator.dart';
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: contacts(),
+      home: Implicit_Animations(),
     );
   }
 }
@@ -125,27 +129,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontFamily: 'Courgette', fontSize: 22),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.only(top: 12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(padding: EdgeInsets.only(left: 22)),
-                  Image.asset(
-                    'assets/Images/ic_facebook.png',
-                    height: 30,
-                  ),
-                  Padding(padding: EdgeInsets.only(left: 12)),
-                  Image.asset(
-                    'assets/Images/ic_google.png',
-                    height: 30,
-                  ),
-                  Padding(padding: EdgeInsets.only(left: 12)),
-                  Image.asset('assets/Images/ic_apple.png'),
-                  Padding(padding: EdgeInsets.only(left: 12)),
-                ],
-              ),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.only(top: 12.0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       Padding(padding: EdgeInsets.only(left: 22)),
+            //       Image.asset(
+            //         'assets/Images/ic_facebook.png',
+            //         height: 30,
+            //       ),
+            //       Padding(padding: EdgeInsets.only(left: 12)),
+            //       Image.asset(
+            //         'assets/Images/ic_google.png',
+            //         height: 30,
+            //       ),
+            //       Padding(padding: EdgeInsets.only(left: 12)),
+            //       Image.asset('assets/Images/ic_apple.png'),
+            //       Padding(padding: EdgeInsets.only(left: 12)),
+            //     ],
+            //   ),
+            // ),
             SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -189,8 +193,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-// Doubt:- 
-// Mode effective way to adjust img.
-// Border Radius in underline...
-// Top bottom space.
-// FontWeight ft.w600
