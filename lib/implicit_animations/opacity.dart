@@ -31,6 +31,7 @@ class _AnimateopacityState extends State<Animateopacity> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset('assets/Images/memoji.PNG',height: 200,),SizedBox(height: 20),
               Text(
                 'Animated Opacity',
                 style: TextStyle(

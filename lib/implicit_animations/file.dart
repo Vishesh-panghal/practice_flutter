@@ -15,23 +15,19 @@ class Implicit_Animations extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-            Color(0xfffed6e3),
-            Color(0xffa8edea),
+            Color(0xff48c6ef),
+            Color(0xffe2d1c3),
           ], begin: FractionalOffset(1.0, 0), end: FractionalOffset(0, 1)),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ShaderMask(
-                  shaderCallback: (bounds) =>
-                      LinearGradient(colors: [
-                        Colors.red,Colors.deepPurple
-                      ]).createShader(bounds),
-                  child: Text(
-                    'Implicite Animation',
-                    style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold, color: Colors.blueGrey),
-                  )),
+              Image.asset('assets/Images/coludy.png',height: 120,),SizedBox(height: 30),
+              Text(
+                'Implicite Animation',
+                style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold, color: Colors.yellow.shade900),
+              ),
 
               //----------------------Buttons----------------//
               SizedBox(height: 50),
