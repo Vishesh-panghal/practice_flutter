@@ -5,6 +5,7 @@ import 'package:authentication_pages/contacts.dart';
 import 'package:flutter/material.dart';
 import 'implicit_animations/Container.dart';
 import 'implicit_animations/Crossfade.dart';
+import 'implicit_animations/dark_light.dart';
 import 'implicit_animations/file.dart';
 import 'implicit_animations/opacity.dart';
 import 'signup.dart';

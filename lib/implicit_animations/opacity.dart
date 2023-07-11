@@ -55,7 +55,7 @@ class _AnimateopacityState extends State<Animateopacity> {
               ElevatedButton(
                   onPressed: () {
                     if (mColor == Colors.grey) {
-                      mopacity = 0.8;
+                      mopacity = 0.0;
                       mColor = Colors.greenAccent;
                     }else{
                       mopacity = 0.5;

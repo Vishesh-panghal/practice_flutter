@@ -43,15 +43,15 @@ class _AnimateCrossFadeState extends State<AnimateCrossFade> {
                   ),
                 ),
                 secondChild: Container(
-                  width: 150,
-                  height: 150,
+                  width: 350,
+                  height: 250,
                   decoration: BoxDecoration(
                     color: Colors.brown,
                     borderRadius: BorderRadius.circular(80),
                   ),
                 ),
                 crossFadeState: state,
-                duration: Duration(seconds: 2),
+                duration: Duration(seconds: 1),
                 firstCurve: Curves.easeInToLinear,
                 secondCurve: Curves.easeInToLinear,
                 sizeCurve: Curves.bounceInOut,

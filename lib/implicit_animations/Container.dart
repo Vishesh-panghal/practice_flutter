@@ -16,15 +16,17 @@ class _AnimateContainerState extends State<AnimateContainer> {
   var mWidth = 400.0;
   Color mColor = Colors.grey;
 
-  // @override
-  // void initState() {
-  //    super.initState();
-  //   Timer(Duration(milliseconds: 3000), () {
-  //     mHeight = 400.0;
-  //     mWidth = 200.0;
-  //     mColor = Colors.yellowAccent;
-  //   });
-  // }
+  @override
+  void initState() {
+     
+    Timer(Duration(seconds: 3), () {
+      mHeight = 400.0;
+      mWidth = 200.0;
+      mColor = Colors.yellowAccent;
+      setState(() {});
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

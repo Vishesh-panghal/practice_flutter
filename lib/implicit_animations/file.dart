@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:authentication_pages/implicit_animations/hero_animation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:page_transition/page_transition.dart';
 import 'Container.dart';
 import 'Crossfade.dart';
+import 'icon_animation.dart';
 import 'opacity.dart';
 
 class Implicit_Animations extends StatelessWidget {
@@ -23,10 +26,24 @@ class Implicit_Animations extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/Images/coludy.png',height: 120,),SizedBox(height: 30),
+              Hero(
+                tag: 'img',
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HeroAnimation(),));
+                    },
+                    child: Image.asset(
+                                  'assets/Images/coludy.png',
+                                  height: 120,
+                                ),
+                  )),
+              SizedBox(height: 30),
               Text(
                 'Implicite Animation',
-                style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold, color: Colors.yellow.shade900),
+                style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellow.shade900),
               ),
 
               //----------------------Buttons----------------//
@@ -55,9 +72,11 @@ class Implicit_Animations extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => Animateopacity(),
-                      ));
+                      // MaterialPageRoute(
+                      //   builder: (context) => Animateopacity(),
+                      // )
+                      PageTransition(child: Animateopacity(), type: PageTransitionType.fade)
+                      );
                 },
                 child: Text(
                   'Animated Opacit',
@@ -88,9 +107,11 @@ class Implicit_Animations extends StatelessWidget {
               ElevatedButton(
                 style:
                     ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => IconAnimated(),));
+                },
                 child: Text(
-                  'Animated Container',
+                  'Animated Icon',
                   style: TextStyle(
                     color: Colors.white,
                   ),
