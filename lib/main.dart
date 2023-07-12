@@ -3,6 +3,7 @@
 import 'package:authentication_pages/BMI.dart';
 import 'package:authentication_pages/contacts.dart';
 import 'package:flutter/material.dart';
+import 'Explicit_animations/tween_animation.dart';
 import 'implicit_animations/Container.dart';
 import 'implicit_animations/Crossfade.dart';
 import 'implicit_animations/dark_light.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Implicit_Animations(),
+      home: TweenAnim(),
     );
   }
 }

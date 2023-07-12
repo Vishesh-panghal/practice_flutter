@@ -9,15 +9,14 @@ class HeroAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          constraints: BoxConstraints.expand(),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Color(0xff43e97b), const Color(0xff38f9d7)])),
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Color(0xff43e97b), const Color(0xff38f9d7)])),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Hero(
-                tag: 'img', child: Image.asset('assets/Images/coludy.png')),
+            Hero(tag: 'img', child: Image.asset('assets/Images/coludy.png')),
           ],
         ),
       ),

@@ -27,15 +27,19 @@ class Implicit_Animations extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Hero(
-                tag: 'img',
+                  tag: 'img',
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HeroAnimation(),));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HeroAnimation(),
+                          ));
                     },
                     child: Image.asset(
-                                  'assets/Images/coludy.png',
-                                  height: 120,
-                                ),
+                      'assets/Images/coludy.png',
+                      height: 120,
+                    ),
                   )),
               SizedBox(height: 30),
               Text(
@@ -75,8 +79,9 @@ class Implicit_Animations extends StatelessWidget {
                       // MaterialPageRoute(
                       //   builder: (context) => Animateopacity(),
                       // )
-                      PageTransition(child: Animateopacity(), type: PageTransitionType.fade)
-                      );
+                      PageTransition(
+                          child: Animateopacity(),
+                          type: PageTransitionType.fade));
                 },
                 child: Text(
                   'Animated Opacit',
@@ -108,7 +113,11 @@ class Implicit_Animations extends StatelessWidget {
                 style:
                     ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => IconAnimated(),));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => IconAnimated(),
+                      ));
                 },
                 child: Text(
                   'Animated Icon',

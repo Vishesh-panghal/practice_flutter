@@ -20,37 +20,36 @@ class _BMIState extends State<BMI> {
   var inchHeight = TextEditingController();
   var cmHeight = TextEditingController();
 
-
- void updateUI ()
- {
+  void updateUI() {
     if (check == false) {
-                          var ftIntome = int.parse(ftHeight.text) / 3.281;
-                          var inchIntome = int.parse(inchHeight.text) / 39.37;
-                          var sum = ftIntome + inchIntome;
-                          var result2 = int.parse(weight.text) / pow(sum, 2);
-                          result = double.parse(result2.toStringAsFixed(2));
-                          if (result > 25) {
-                            category = 'Overweight';
-                          } else if (result >= 18 && result <= 25) {
-                            category = 'Normal';
-                          } else if (result < 18) {
-                            category = 'Underweight';
-                          }
-                        } else if (check == true) {
-                          var sum = double.parse(cmHeight.text) / 100;
-                          var result2 = int.parse(weight.text) / pow(sum, 2);
-                          result = double.parse(result2.toStringAsFixed(2));
-                          if (result > 25) {
-                            category = 'Overweight';
-                          } else if (result >= 18 && result <= 25) {
-                            category = 'Normal';
-                            categoryColor = Colors.green;
-                          } else if (result < 18) {
-                            category = 'Underweight';
-                            categoryColor = Colors.yellow;
-                          }
-                        }
- }
+      var ftIntome = int.parse(ftHeight.text) / 3.281;
+      var inchIntome = int.parse(inchHeight.text) / 39.37;
+      var sum = ftIntome + inchIntome;
+      var result2 = int.parse(weight.text) / pow(sum, 2);
+      result = double.parse(result2.toStringAsFixed(2));
+      if (result > 25) {
+        category = 'Overweight';
+      } else if (result >= 18 && result <= 25) {
+        category = 'Normal';
+      } else if (result < 18) {
+        category = 'Underweight';
+      }
+    } else if (check == true) {
+      var sum = double.parse(cmHeight.text) / 100;
+      var result2 = int.parse(weight.text) / pow(sum, 2);
+      result = double.parse(result2.toStringAsFixed(2));
+      if (result > 25) {
+        category = 'Overweight';
+      } else if (result >= 18 && result <= 25) {
+        category = 'Normal';
+        categoryColor = Colors.green;
+      } else if (result < 18) {
+        category = 'Underweight';
+        categoryColor = Colors.yellow;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -259,7 +258,7 @@ class _BMIState extends State<BMI> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                      updateUI();
+                        updateUI();
                       });
                     },
                     child: Text(
