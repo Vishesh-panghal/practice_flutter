@@ -21,7 +21,7 @@ class _AnimateImagePageState extends State<AnimateImagePage>
     super.initState();
     shoeAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 1),
     )..repeat(reverse: true);
   }
 
