@@ -23,7 +23,9 @@ class _AnimateContainerState extends State<AnimateContainer> {
       mHeight = 400.0;
       mWidth = 200.0;
       mColor = Colors.yellowAccent;
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     });
     super.initState();
   }

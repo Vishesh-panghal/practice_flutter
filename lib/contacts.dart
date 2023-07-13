@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 class contacts extends StatefulWidget {
@@ -27,6 +28,16 @@ class _contactsState extends State<contacts> {
     {'name': '#Crush', 'status': 'Crush', 'isFav': false},
   ].toList();
 
+  Color clr = Colors.blue.shade200;
+  @override
+  void initState() {
+    Timer(Duration(milliseconds: 5000), () {
+      clr = Colors.orange.shade300;
+      setState(() {});
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,13 +48,12 @@ class _contactsState extends State<contacts> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 15),
-            
             Text(
               'Contacts',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 32,
-                color: Color.fromARGB(255, 183, 224, 247),
+                color: clr,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -67,7 +77,7 @@ class _contactsState extends State<contacts> {
                       width: 70,
                       height: 70,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 168, 225, 169),
+                        color: clr,
                         border: Border.all(
                           width: 0.3,
                           color: Colors.black,
@@ -89,14 +99,14 @@ class _contactsState extends State<contacts> {
                             fontFamily: 'Poppins',
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 183, 224, 247),
+                            color: clr,
                           ),
                         ),
                         Text(
                           'My Card',
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            color: Color.fromARGB(255, 183, 224, 247),
+                            color: clr,
                           ),
                         ),
                       ],
@@ -107,7 +117,7 @@ class _contactsState extends State<contacts> {
                       width: 45,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 168, 225, 169),
+                        color: clr,
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(14),
                       ),
@@ -125,17 +135,20 @@ class _contactsState extends State<contacts> {
                 ),
               ),
             ),
-            Expanded(
+            SizedBox(
+              height: 690,
               child: ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                // physics: NeverScrollableScrollPhysics(),
                 itemCount: contacts.length,
                 itemBuilder: (context, index) {
-                  return Container(
+                  return AnimatedContainer(
+                    duration: Duration(milliseconds: 300 + (index + 100)),
+                    curve: Curves.easeInOut,
                     margin: EdgeInsets.only(left: 6, right: 0, bottom: 6),
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 183, 224, 247),
+                      color: clr,
                       border: Border.all(width: 1),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8),
@@ -194,92 +207,9 @@ class _contactsState extends State<contacts> {
                 },
               ),
             ),
-            BottomAppBar(
-              height: 70,
-              color: Colors.black12,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Favorite',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.access_time_filled_rounded,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Recent',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.account_circle,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Contacts',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.window,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Keypad',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.voicemail_outlined,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        'Voicemail',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
     );
   }
 }
-// Doubt
-// Contact at centre
-// My card scrollable
-// floating action button before bottom app bar

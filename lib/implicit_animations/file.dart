@@ -81,7 +81,7 @@ class Implicit_Animations extends StatelessWidget {
                       // )
                       PageTransition(
                           child: Animateopacity(),
-                          type: PageTransitionType.fade));
+                          type: PageTransitionType.fade,isIos: true));
                 },
                 child: Text(
                   'Animated Opacit',
