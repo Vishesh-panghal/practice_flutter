@@ -96,7 +96,7 @@ class _AnimateImagePageState extends State<AnimateImagePage>
                         isIos: true));
               },
                 child: Image.asset(
-                  'assets/Images/shoe.png',
+                  'assets/Images/shoes_img/shoe.png',
                   width: 230,
                 ),
               ),
