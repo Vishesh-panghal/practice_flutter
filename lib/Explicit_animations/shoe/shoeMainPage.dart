@@ -46,13 +46,13 @@ class _AnimateImagePageState extends State<AnimateImagePage>
         children: [
           InkWell(
             onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        child: ShoeAnimarionPage(),
-                        type: PageTransitionType.bottomToTop,
-                        isIos: true));
-              },
+              Navigator.push(
+                  context,
+                  PageTransition(
+                      child: ShoeAnimarionPage(),
+                      type: PageTransitionType.bottomToTop,
+                      isIos: true));
+            },
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -88,13 +88,15 @@ class _AnimateImagePageState extends State<AnimateImagePage>
               padding: EdgeInsets.only(left: 40),
               child: InkWell(
                 onTap: () {
-                Navigator.push(
+                  Navigator.push(
                     context,
                     PageTransition(
-                        child: ShoeAnimarionPage(),
-                        type: PageTransitionType.bottomToTop,
-                        isIos: true));
-              },
+                      child: ShoeAnimarionPage(),
+                      type: PageTransitionType.bottomToTop,
+                      isIos: true,
+                    ),
+                  );
+                },
                 child: Image.asset(
                   'assets/Images/shoes_img/shoe.png',
                   width: 230,

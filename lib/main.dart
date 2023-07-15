@@ -1,19 +1,20 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, non_constant_identifier_names, use_key_in_widget_constructors, unused_import
 
-import 'package:authentication_pages/BMI.dart';
-import 'package:authentication_pages/contacts.dart';
+import 'package:authentication_pages/Exercise/BMI.dart';
+import 'package:authentication_pages/Exercise/contacts.dart';
 import 'package:flutter/material.dart';
+import 'Explicit_animations/shoe/buyPage.dart';
 import 'Explicit_animations/shoe/shoe.dart';
-import 'Explicit_animations/shoe/translate.dart';
+import 'Explicit_animations/shoe/shoeMainPage.dart';
 import 'Explicit_animations/tween_animation.dart';
 import 'implicit_animations/Container.dart';
 import 'implicit_animations/Crossfade.dart';
 import 'implicit_animations/dark_light.dart';
 import 'implicit_animations/file.dart';
 import 'implicit_animations/opacity.dart';
-import 'signup.dart';
-import 'tip_calcuator.dart';
-import 'calculator.dart';
+import 'Exercise/signup.dart';
+import 'Exercise/tip_calcuator.dart';
+import 'Exercise/calculator.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ShoeAnimarionPage(),
+      home: AnimateImagePage(),
     );
   }
 }
