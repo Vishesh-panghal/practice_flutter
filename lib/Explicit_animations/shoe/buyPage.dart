@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rive/rive.dart' as rive;
 
 class buyPage extends StatefulWidget {
   const buyPage({super.key});
@@ -251,6 +252,7 @@ class _buyPageState extends State<buyPage> with TickerProviderStateMixin {
                     height: 70,
                     onLoaded: (comp) {
                       checkout.duration = comp.duration;
+                      checkout.reset();
                       checkout.forward();
                       checkout.addStatusListener((status) {
                         if (status == AnimationStatus.completed) {

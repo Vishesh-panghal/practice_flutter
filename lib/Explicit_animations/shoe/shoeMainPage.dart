@@ -92,7 +92,7 @@ class _AnimateImagePageState extends State<AnimateImagePage>
                     context,
                     PageTransition(
                       child: ShoeAnimarionPage(),
-                      type: PageTransitionType.bottomToTop,
+                      type: PageTransitionType.fade,
                       isIos: true,
                     ),
                   );

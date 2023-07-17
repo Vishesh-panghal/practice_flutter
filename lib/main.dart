@@ -3,6 +3,7 @@
 import 'package:authentication_pages/Exercise/BMI.dart';
 import 'package:authentication_pages/Exercise/contacts.dart';
 import 'package:flutter/material.dart';
+import 'Exercise/rivePage.dart';
 import 'Explicit_animations/shoe/buyPage.dart';
 import 'Explicit_animations/shoe/shoe.dart';
 import 'Explicit_animations/shoe/shoeMainPage.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AnimateImagePage(),
+      home: rivePage(),
     );
   }
 }
