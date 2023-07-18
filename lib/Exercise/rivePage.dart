@@ -36,9 +36,10 @@ class _rivePageState extends State<rivePage> {
       var artBoard = file.mainArtboard;
       // set artboard name
       mController =
-          rive.StateMachineController.fromArtboard(artBoard, "starFav");
+          rive.StateMachineController.fromArtboard(artBoard, "FavStar");
       // assign artboard controller to main controller...💪
       if (mController != null) {
+        // check ki humne stateMachine ka name sahi dala h ?
         artBoard.addController(mController!);
         riveInput = mController!.findInput("check");
         mainArtboard = artBoard;
@@ -79,9 +80,28 @@ class _rivePageState extends State<rivePage> {
             mainArtboard == null
                 ? Container(
                     decoration: BoxDecoration(),
-                    child: Text('data'),
+                    child: Text(
+                      'StateMachine is not performing Well..😮‍💨',
+                    ),
                   )
-                : rive.Rive(artboard: mainArtboard!),
+                : InkWell(
+                    onTap: () {
+                      if (riveInput != null) {
+                        if (riveInput!.value == false &&
+                            mController!.isActive == false) {
+                          riveInput!.value = true;
+                          // we can't take else here becouse here there are 3 stantment produces as TT,TF,FT, but we to check only of TF...🎃
+                        } else if (riveInput!.value == true &&
+                            mController!.isActive == false) {
+                          riveInput!.value = false;
+                        }
+                      }
+                    },
+                    child: SizedBox(
+                      height: 200,
+                      child: rive.Rive(artboard: mainArtboard!),
+                    ),
+                  ),
           ],
         ),
       ),
