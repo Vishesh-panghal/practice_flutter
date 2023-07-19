@@ -13,8 +13,10 @@ class AnimateImagePage extends StatefulWidget {
 }
 
 class _AnimateImagePageState extends State<AnimateImagePage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController shoeAnimationController;
+  
+
 
   @override
   void initState() {
@@ -23,6 +25,11 @@ class _AnimateImagePageState extends State<AnimateImagePage>
       vsync: this,
       duration: Duration(seconds: 1),
     )..repeat(reverse: true);
+  }
+ @override
+  void dispose() {
+    shoeAnimationController.dispose();
+    super.dispose();
   }
 
   @override
