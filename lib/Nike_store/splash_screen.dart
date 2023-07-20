@@ -1,9 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, curly_braces_in_flow_control_structures
 
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:page_transition/page_transition.dart';
 
+import 'homePage_NikeStore.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -147,7 +149,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
               duration: Duration(seconds: 2),
               opacity: aboutOpacty,
               child: Container(
-                width: 350,
+                width: 345,
                 height: 70,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(92, 174, 216, 239),
@@ -164,25 +166,15 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                           milliseconds: 600,
                         ),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(170, 241, 191, 52),
+                          color: Color.fromARGB(61, 241, 191, 52),
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         child: myWidth > 0.0
-                            ? Row(
-                                children: [
-                                  Icon(Icons.check,
-                                      color: Colors.black, size: 38),
-                                  Flexible(
-                                      child: Text(
-                                    ' Payment Successful ',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18,
-                                    ),
-                                  ))
-                                ],
-                              )
-                            : Icon(Icons.keyboard_arrow_right_sharp, size: 38),
+                            ? Icon(Icons.check, color: Colors.black, size: 38)
+                            : Icon(
+                                Icons.keyboard_arrow_right_sharp,
+                                size: 38,
+                              ),
                       ),
                     ),
                     myWidth == 0
@@ -202,10 +194,50 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
+// AnimatedOpacity(
+//               duration: Duration(seconds: 3),
+//               opacity: aboutOpacty,
+//               child: InkWell(
+//                 onTap: () {
+//                   Navigator.pushReplacement(
+//                       context,
+//                       PageTransition(
+//                           child: NikeHomePage(),
+//                           type: PageTransitionType.fade,
+//                           duration: Duration(milliseconds: 300),
+//                           isIos: true));
+//                 },
+//                 child: Container(
+//                   alignment: Alignment.center,
+//                   height: 40,
+//                   width: 150,
+//                   decoration: BoxDecoration(
+//                     gradient: LinearGradient(colors: [
+//                       Color(0xffe2ebf0),
+//                       Color.fromARGB(169, 246, 212, 101),
+//                     ]),
+//                     borderRadius: BorderRadius.circular(5),
+//                   ),
+//                   child: Text(
+//                     'Get Started',
+//                     style: TextStyle(
+//                       fontFamily: 'Poppins',
+//                       fontSize: 18,
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             )

@@ -68,6 +68,8 @@ flutter:
     - assets/Images/
     - assets/Images/shoes_img/
     - assets/Images/nike_store/
+    - assets/Images/nike_store/Newest/
+    - assets/Images/nike_store/popular/
     - assets/lottie/
     - assets/riv/
 
