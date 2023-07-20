@@ -1,13 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:async';
-
-import 'package:authentication_pages/implicit_animations/Container.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:page_transition/page_transition.dart';
 
-import 'homePage_NikeStore.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
