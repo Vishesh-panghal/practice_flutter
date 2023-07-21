@@ -155,43 +155,50 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                   color: Color.fromARGB(92, 174, 216, 239),
                   borderRadius: BorderRadius.circular(50),
                 ),
-                child: Row(
-                  children: [
-                    Transform.translate(
-                      offset: Offset(translateX, translateY),
-                      child: AnimatedContainer(
-                        height: 70,
-                        width: 90 + myWidth,
-                        duration: Duration(
-                          milliseconds: 600,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                     return NikeHomePage();
+                    },));
+                  },
+                  child: Row(
+                    children: [
+                      Transform.translate(
+                        offset: Offset(translateX, translateY),
+                        child: AnimatedContainer(
+                          height: 70,
+                          width: 90,
+                          duration: Duration(
+                            milliseconds: 600,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(61, 241, 191, 52),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                          child: myWidth > 0.0
+                              ? Icon(Icons.check, color: Colors.black, size: 38)
+                              : Icon(
+                                  Icons.keyboard_arrow_right_sharp,
+                                  size: 38,
+                                ),
                         ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(61, 241, 191, 52),
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        child: myWidth > 0.0
-                            ? Icon(Icons.check, color: Colors.black, size: 38)
-                            : Icon(
-                                Icons.keyboard_arrow_right_sharp,
-                                size: 38,
-                              ),
                       ),
-                    ),
-                    myWidth == 0
-                        ? Expanded(
-                            child: Center(
-                              child: Text(
-                                'Swipe to start shopping..',
-                                style: TextStyle(
-                                  fontFamily: 'Courgette',
-                                  color: Colors.grey,
-                                  fontSize: 18,
+                      myWidth == 0
+                          ? Expanded(
+                              child: Center(
+                                child: Text(
+                                  'Swipe to start shopping..',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.grey,
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                          )
-                        : SizedBox(),
-                  ],
+                            )
+                          : SizedBox(),
+                    ],
+                  ),
                 ),
               ),
             ),
