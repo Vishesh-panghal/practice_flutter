@@ -213,12 +213,13 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 20),
-                //-----------------Newest shoes-------------------------//
+                //---------------Newest shoes-------------------------//
                 SizedBox(
                   height: 230,
                   width: 380,
                   child: ListView.builder(
                     itemCount: Constants.newShoes.length,
+                    // itemCount: ShoeItem,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Row(

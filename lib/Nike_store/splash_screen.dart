@@ -28,16 +28,16 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   @override
   void initState() {
-    iconController = AnimationController(vsync: this);
+    iconController = AnimationController(vsync: this,duration: Duration(seconds: 1));
     shoeController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
     nameController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
     shoeAnimation = Tween(begin: 0.6, end: 1.0).animate(shoeController);
     nameAnimation = Tween(begin: -1.0, end: 0.3).animate(nameController);
     shoeController.forward();
     nameController.forward();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 1), () {
       aboutOpacty = 1.0;
       setState(() {});
     });
@@ -78,7 +78,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                     height: 50,
                     controller: iconController,
                     onLoaded: (p0) {
-                      iconController.duration = p0.duration;
+                      // iconController.duration = p0.duration;
                       iconController.forward();
                     },
                   ),
@@ -133,7 +133,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
             SizedBox(height: 30),
             AnimatedOpacity(
               opacity: aboutOpacty,
-              duration: Duration(seconds: 3),
+              duration: Duration(seconds: 1),
               child: Text(
                 'Get access to more than 1000 nike shoes\n also another brand with 20% off.',
                 style: TextStyle(
@@ -146,7 +146,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
             //------------About Statment---------------------//
             SizedBox(height: 70),
             AnimatedOpacity(
-              duration: Duration(seconds: 2),
+              duration: Duration(seconds: 1),
               opacity: aboutOpacty,
               child: Container(
                 width: 345,

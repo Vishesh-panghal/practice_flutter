@@ -21,11 +21,11 @@ class Constants {
   static List<Map<String, dynamic>> popularShoes = [
     {
       'name': 'Go FlyEase',
-      'imgAdd': 'assets/Images/nike_store/popular/list1.png'
+      'imgAdd': 'assets/Images/nike_store/popular/list1.png',
     },
     {
       'name': 'Nike Air \nForce 1',
-      'imgAdd': 'assets/Images/nike_store/popular/list2.png'
+      'imgAdd': 'assets/Images/nike_store/popular/list2.png',
     },
     {
       'name': 'Air Jordan \n13 Retro',
@@ -95,3 +95,48 @@ ShoeItem sh5 = ShoeItem(
         "Hoof it from the bottom of the trail to the top, and handle winding paths, rolling hills, tricky hairpin turns and everything in between in the Nike Precision 6. With an abundance of rugged traction, cushioned responsiveness and trusted containment to help keep you upright, it's made for tough trail runs, the ones with limitless miles and gnarly terrain that are too enticing to turn down.",
     colorSelection: 'White/Midnight Navy/Yellow',
     style: 'CD7069-004');
+ShoeItem sh6 = ShoeItem(
+  name: 'Go FlyEase',
+  imgAdd: 'assets/Images/nike_store/popular/list1.png',
+  aboutShoe:
+      "Ditch the laces and get outside. These kicks feature Nike's revolutionary FlyEase technology, making on-and-off a breeze. With a heel that pivots open for a totally hands-free entry, they're great for people with limited mobility—or anyone who wants a quicker way to get going.",
+  colorSelection: 'Photon Dust/Summit White\n/Mineral/Geode Teal',
+  style: 'DR5540-013',
+  isPopular: true,
+);
+ShoeItem sh7 = ShoeItem(
+  name: 'Nike Air \nForce 1',
+  imgAdd: 'assets/Images/nike_store/popular/list2.png',
+  aboutShoe:
+      "Let your design shine in satin, keep it classic in canvas or get luxe with leather. No matter what you choose, these AF-1s are all about you. 12 colour choices and an additional Gum option for the sole mean your design is destined to be one of a kind, just like you",
+  colorSelection: 'Multi-Colour/Multi-Colour',
+  style: 'DV3908-900',
+  isPopular: true,
+);
+ShoeItem sh8 = ShoeItem(
+  name: 'Air Jordan \n13 Retro',
+  imgAdd: 'assets/Images/nike_store/popular/list3.png',
+  aboutShoe:
+      "Michael Jordan earned the nickname \"Black Cat\" for his superior athletic ability and prowess at both ends of the court. That nickname became the muse for the Tinker Hatfield-designed Air Jordan 13. Featuring a panther-paw-like sole and \"cat eye\" holograph, Michael rode the mid-top shoe all the way to his 6th ring in '98, the last triumph of his legendary career. The Air Jordan 13 Retro brings back the stealthy, shrouded design with a fresh mix of colours and textures",
+  colorSelection: 'Black/Flint Grey/White/University Red',
+  style: 'DJ5982-060',
+  isPopular: true,
+);
+ShoeItem sh9 = ShoeItem(
+  name: 'SuperRep \nCycle 2',
+  imgAdd: 'assets/Images/nike_store/popular/list4.png',
+  aboutShoe:
+      "Designed to be more breathable than its predecessor, the Nike SuperRep Cycle 2 Next Nature lets you work towards your next PR during high-heat, fast-paced indoor cycling. An improved adjustable strap helps secure your feet during intense movement.",
+  colorSelection: 'Game Royal/Baltic Blue\n/Black/Picante Red',
+  style: 'DH3396-401',
+  isPopular: true,
+);
+ShoeItem sh10 = ShoeItem(
+  name: 'Luka 1 PF',
+  imgAdd: 'assets/Images/nike_store/popular/list5.png',
+  aboutShoe:
+      "Designed for No. 77 and made for every athlete craving speed and efficiency, Luka's debut delivers the goods. The first shoe with full-length Formula 23 foam, it has an ultra-supportive fit crafted with the step-back in mind. Meanwhile, strong and lightweight Flight Wire embroidery keeps you feeling contained, whether you're playing indoors or out. This is the assist you've been waiting for—get out there and make your shot. This version is designed wider and made for play on outdoor courts.",
+      colorSelection: "White/Dynamic Turquoise\n/Laser Orange/Fire Pink",
+  style: 'DQ6510-164',
+  isPopular: true,
+);
