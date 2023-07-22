@@ -73,7 +73,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 20),
-                //--------------- Menu & Profile-----------------------//
+                //-------------- Menu & Profile-----------------------//
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -115,7 +115,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 30),
-                //-------------------Search Bar-------------------------//
+                //-----------------Search Bar-------------------------//
                 SizedBox(
                   height: 150,
                   width: 400,
@@ -128,7 +128,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ),
                 ),
                 SizedBox(height: 40),
-                //----------------Quote Container-----------------------//
+                //--------------Quote Container-----------------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -180,7 +180,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 50),
-                //-----------------List of Brands-----------------------//
+                //---------------List of Brands-----------------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -218,8 +218,8 @@ class _NikeHomePageState extends State<NikeHomePage>
                   height: 230,
                   width: 380,
                   child: ListView.builder(
-                    itemCount: Constants.newShoes.length,
-                    // itemCount: ShoeItem,
+                    // itemCount: Constants.newShoes.length,
+                    // itemCount: ShoeItem.,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Row(
