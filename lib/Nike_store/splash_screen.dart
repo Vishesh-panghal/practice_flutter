@@ -1,9 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, curly_braces_in_flow_control_structures
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:page_transition/page_transition.dart';
 
 import 'homePage_NikeStore.dart';
 
@@ -27,17 +24,19 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   double myWidth = 0.0;
 
   @override
+
+  //--------------Animation Controllers----------------------//
   void initState() {
-    iconController = AnimationController(vsync: this,duration: Duration(seconds: 1));
+    iconController = AnimationController(vsync: this,duration: const Duration(seconds: 1));
     shoeController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
     nameController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
     shoeAnimation = Tween(begin: 0.6, end: 1.0).animate(shoeController);
     nameAnimation = Tween(begin: -1.0, end: 0.3).animate(nameController);
     shoeController.forward();
     nameController.forward();
-    Timer(Duration(seconds: 1), () {
+    Timer(const Duration(seconds: 1), () {
       aboutOpacty = 1.0;
       setState(() {});
     });
@@ -45,6 +44,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   }
 
   @override
+  //--------------------Dispose Animation-------------------//
   void dispose() {
     iconController.dispose();
     super.dispose();
@@ -53,9 +53,10 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //---------------Background Color-----------------------//
       body: Container(
-        constraints: BoxConstraints.expand(),
-        decoration: BoxDecoration(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Color.fromARGB(169, 246, 212, 101),
@@ -67,7 +68,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>
         ),
         child: Column(
           children: [
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
+            //-------Lottie Nike Animation--------------//
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Row(
@@ -78,14 +80,13 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                     height: 50,
                     controller: iconController,
                     onLoaded: (p0) {
-                      // iconController.duration = p0.duration;
                       iconController.forward();
                     },
                   ),
                 ],
               ),
             ),
-            //-----------Nike Sign at Top {Lottie}--------------------//
+           //------------Front shoe Image--------------//
             AnimatedBuilder(
               animation: shoeController.view,
               builder: (context, child) {
@@ -96,8 +97,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>
               },
               child: Image.asset('assets/Images/nike_store/splash_screen.png'),
             ),
-            SizedBox(height: 20),
-            //-----------------Shoe Scale Image-----------------------//
+            const SizedBox(height: 20),
+           //---------------Nike slogan--------------//
             AnimatedBuilder(
               animation: nameAnimation,
               builder: (context, child) {
@@ -107,7 +108,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                   child: child,
                 );
               },
-              child: Row(
+              child: const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
@@ -129,12 +130,12 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 ],
               ),
             ),
-            //----------------- Slogan {Nike}------------------------//
-            SizedBox(height: 30),
+           //--------------About and off------------//
+            const SizedBox(height: 30),
             AnimatedOpacity(
               opacity: aboutOpacty,
-              duration: Duration(seconds: 1),
-              child: Text(
+              duration: const Duration(seconds: 1),
+              child: const Text(
                 'Get access to more than 1000 nike shoes\n also another brand with 20% off.',
                 style: TextStyle(
                   fontFamily: 'Poppins',
@@ -144,21 +145,23 @@ class _SplashScreenPageState extends State<SplashScreenPage>
               ),
             ),
             //------------About Statment---------------------//
-            SizedBox(height: 70),
+            const SizedBox(height: 70),
+            //----------------Slider-----------------------//
             AnimatedOpacity(
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               opacity: aboutOpacty,
+              //------------main Container---------------//
               child: Container(
                 width: 345,
                 height: 70,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(92, 174, 216, 239),
+                  color: const Color.fromARGB(92, 174, 216, 239),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: InkWell(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                     return NikeHomePage();
+                     return const NikeHomePage();
                     },));
                   },
                   child: Row(
@@ -168,23 +171,23 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                         child: AnimatedContainer(
                           height: 70,
                           width: 90,
-                          duration: Duration(
+                          duration: const Duration(
                             milliseconds: 600,
                           ),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(61, 241, 191, 52),
+                            color: const Color.fromARGB(61, 241, 191, 52),
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                           child: myWidth > 0.0
-                              ? Icon(Icons.check, color: Colors.black, size: 38)
-                              : Icon(
+                              ? const Icon(Icons.check, color: Colors.black, size: 38)
+                              : const Icon(
                                   Icons.keyboard_arrow_right_sharp,
                                   size: 38,
                                 ),
                         ),
                       ),
                       myWidth == 0
-                          ? Expanded(
+                          ? const Expanded(
                               child: Center(
                                 child: Text(
                                   'Swipe to start shopping..',
@@ -196,7 +199,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                                 ),
                               ),
                             )
-                          : SizedBox(),
+                          : const SizedBox(),
                     ],
                   ),
                 ),
@@ -208,43 +211,3 @@ class _SplashScreenPageState extends State<SplashScreenPage>
     );
   }
 }
-
-
-
-
-
-// AnimatedOpacity(
-//               duration: Duration(seconds: 3),
-//               opacity: aboutOpacty,
-//               child: InkWell(
-//                 onTap: () {
-//                   Navigator.pushReplacement(
-//                       context,
-//                       PageTransition(
-//                           child: NikeHomePage(),
-//                           type: PageTransitionType.fade,
-//                           duration: Duration(milliseconds: 300),
-//                           isIos: true));
-//                 },
-//                 child: Container(
-//                   alignment: Alignment.center,
-//                   height: 40,
-//                   width: 150,
-//                   decoration: BoxDecoration(
-//                     gradient: LinearGradient(colors: [
-//                       Color(0xffe2ebf0),
-//                       Color.fromARGB(169, 246, 212, 101),
-//                     ]),
-//                     borderRadius: BorderRadius.circular(5),
-//                   ),
-//                   child: Text(
-//                     'Get Started',
-//                     style: TextStyle(
-//                       fontFamily: 'Poppins',
-//                       fontSize: 18,
-//                       fontWeight: FontWeight.bold,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             )

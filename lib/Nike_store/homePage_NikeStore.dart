@@ -14,9 +14,11 @@ class NikeHomePage extends StatefulWidget {
 
 class _NikeHomePageState extends State<NikeHomePage>
     with TickerProviderStateMixin {
+      //-------------------Animation Controller----------------//
   late AnimationController shoeController;
 
   @override
+  //----------------------init State-----------------------//
   void initState() {
     shoeController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 500));
@@ -29,6 +31,7 @@ class _NikeHomePageState extends State<NikeHomePage>
     return SafeArea(
       bottom: false,
       child: Scaffold(
+        //-------------------Background Color----------------//
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
           constraints: BoxConstraints.expand(),
@@ -37,6 +40,7 @@ class _NikeHomePageState extends State<NikeHomePage>
             child: Column(
               children: [
                 SizedBox(height: 50),
+                //---------------------Top Button------------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -73,7 +77,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 20),
-                //-------------- Menu & Profile-----------------------//
+                //---------------------Search Menu---------------//
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -115,7 +119,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 30),
-                //-----------------Search Bar-------------------------//
+                //------------------Pamplate--------------------//
                 SizedBox(
                   height: 150,
                   width: 400,
@@ -128,7 +132,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ),
                 ),
                 SizedBox(height: 40),
-                //--------------Quote Container-----------------------//
+                //--------------Slider to brand-----------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -180,7 +184,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 50),
-                //---------------List of Brands-----------------------//
+                //---------------New shoe-----------------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -213,7 +217,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ],
                 ),
                 SizedBox(height: 20),
-                //---------------Newest shoes-------------------------//
+                //--------------New Shoe ListView--------------------//
                 SizedBox(
                   height: 230,
                   width: 380,
@@ -222,6 +226,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                     // itemCount: ShoeItem.,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
+                      //--------Main Row Text and Image-----------//
                       return Row(
                         children: [
                           Container(
@@ -230,6 +235,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                             decoration: BoxDecoration(
                                 color: Colors.grey.shade200,
                                 borderRadius: BorderRadius.circular(12)),
+                                //---------Text Column----------------//
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -324,7 +330,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                     ),
                                   ],
                                 ),
-                                //---------------------Stack--------------//
+                                //-----------------Stack--------------//
                               ],
                             ),
                           ),
@@ -332,11 +338,11 @@ class _NikeHomePageState extends State<NikeHomePage>
                         ],
                       );
                     },
-                    //--------------------ListView--------------------------//
+                    //------------------ListView----------------------//
                   ),
                 ),
                 SizedBox(height: 40),
-                //-------------------------------Breake-------------------//
+                //---------------------------Breake-------------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -477,7 +483,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                     ),
                                   ],
                                 ),
-                                //---------------------Stack--------------//
+                                //---------------------Stack------------//
                               ],
                             ),
                           ),
@@ -485,7 +491,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                         ],
                       );
                     },
-                    //--------------------ListView------------------------//
+                    //--------------------ListView----------------------//
                   ),
                 ),
               ],
