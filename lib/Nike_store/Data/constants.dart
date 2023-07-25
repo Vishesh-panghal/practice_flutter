@@ -140,3 +140,8 @@ ShoeItem sh10 = ShoeItem(
   style: 'DQ6510-164',
   isPopular: true,
 );
+
+
+List<ShoeItem> Shoes = [
+  sh1,sh2
+];

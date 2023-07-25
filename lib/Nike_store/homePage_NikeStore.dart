@@ -223,7 +223,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   width: 380,
                   child: ListView.builder(
                     // itemCount: Constants.newShoes.length,
-                    // itemCount: ShoeItem.,
+                    itemCount: Shoes.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       //--------Main Row Text and Image-----------//
@@ -260,7 +260,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                 ),
                                               ),
                                               Text(
-                                                '${Constants.newShoes[index]['name']}',
+                                                Shoes[index].name!,
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 22,
