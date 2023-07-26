@@ -323,7 +323,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                           );
                                         },
                                         child: Image.asset(
-                                          '${Constants.newShoes[index]['imgAdd']}',
+                                          Shoes[index].imgAdd!,
                                           height: 90,
                                         ),
                                       ),
@@ -342,7 +342,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   ),
                 ),
                 SizedBox(height: 40),
-                //---------------------------Breake-------------------//
+                //------------------Popular Shoe-------------------//
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -374,6 +374,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                     )
                   ],
                 ),
+                //-------------- Popular ListView-------------------//
                 SizedBox(
                   height: 230,
                   width: 380,
@@ -404,6 +405,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
                                             children: [
+                                              //------Shoe Name-------//
                                               Text(
                                                 'Nike',
                                                 style: TextStyle(
@@ -413,7 +415,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                 ),
                                               ),
                                               Text(
-                                                '${Constants.popularShoes[index]['name']}',
+                                                 Shoes[index].name!,
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 22,
@@ -421,6 +423,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                     color: Colors.amber),
                                               ),
                                               SizedBox(height: 20),
+                                              //---Popular shoe btn---//
                                               ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
                                                     backgroundColor:
@@ -450,6 +453,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                             ],
                                           ),
                                         ),
+                                        //----Base Nike icon---//
                                         Container(
                                           alignment: Alignment.centerRight,
                                           child: Image.asset(
@@ -459,6 +463,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                         ),
                                       ],
                                     ),
+                                    //---Popular Soe Img-----//
                                     InkWell(
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(
@@ -476,14 +481,13 @@ class _NikeHomePageState extends State<NikeHomePage>
                                           );
                                         },
                                         child: Image.asset(
-                                          '${Constants.popularShoes[index]['imgAdd']}',
+                                           Shoes[index].imgAdd!,
                                           height: 90,
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
-                                //---------------------Stack------------//
                               ],
                             ),
                           ),
@@ -491,7 +495,6 @@ class _NikeHomePageState extends State<NikeHomePage>
                         ],
                       );
                     },
-                    //--------------------ListView----------------------//
                   ),
                 ),
               ],
