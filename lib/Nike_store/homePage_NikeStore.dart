@@ -1,9 +1,12 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_build_context_synchronously, unused_element
 
 import 'package:authentication_pages/Nike_store/about_Shoe/about_page.dart';
+import 'package:authentication_pages/Nike_store/authentication/login.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Data/constants.dart';
+import 'splash_screen.dart';
 
 class NikeHomePage extends StatefulWidget {
   const NikeHomePage({super.key});
@@ -14,7 +17,7 @@ class NikeHomePage extends StatefulWidget {
 
 class _NikeHomePageState extends State<NikeHomePage>
     with TickerProviderStateMixin {
-      //-------------------Animation Controller----------------//
+  //-------------------Animation Controller----------------//
   late AnimationController shoeController;
 
   @override
@@ -59,20 +62,29 @@ class _NikeHomePageState extends State<NikeHomePage>
                       ),
                       child: Icon(Icons.dehaze),
                     ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(17, 0, 0, 0),
-                            blurRadius: 12,
-                          ),
-                        ],
+                    InkWell(
+                      onTap: () async{
+                         var pref =await SharedPreferences.getInstance();
+                        pref.setBool(SplashScreenPage.KEYLOGIN, false);
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                          return LoginPage();
+                        },));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(17, 0, 0, 0),
+                              blurRadius: 12,
+                            ),
+                          ],
+                        ),
+                        child: Image.asset('assets/Images/memoji.PNG'),
                       ),
-                      child: Image.asset('assets/Images/memoji.PNG'),
                     ),
                   ],
                 ),
@@ -235,7 +247,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                             decoration: BoxDecoration(
                                 color: Colors.grey.shade200,
                                 borderRadius: BorderRadius.circular(12)),
-                                //---------Text Column----------------//
+                            //---------Text Column----------------//
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -287,7 +299,8 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                           color: Colors.white),
                                                     ),
                                                     Icon(
-                                                      Icons.shopping_bag_outlined,
+                                                      Icons
+                                                          .shopping_bag_outlined,
                                                       size: 18,
                                                       color: Colors.white,
                                                     )
@@ -308,7 +321,8 @@ class _NikeHomePageState extends State<NikeHomePage>
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
                                           builder: (context) {
                                             return AboutNikeShoePage(index);
                                           },
@@ -415,7 +429,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                 ),
                                               ),
                                               Text(
-                                                 Shoes[index].name!,
+                                                Shoes[index].name!,
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 22,
@@ -443,7 +457,8 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                           color: Colors.white),
                                                     ),
                                                     Icon(
-                                                      Icons.shopping_bag_outlined,
+                                                      Icons
+                                                          .shopping_bag_outlined,
                                                       size: 18,
                                                       color: Colors.white,
                                                     )
@@ -466,9 +481,13 @@ class _NikeHomePageState extends State<NikeHomePage>
                                     //---Popular Soe Img-----//
                                     InkWell(
                                       onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
                                           builder: (context) {
-                                            return AboutNikeShoePage(index,isPopular: true,);
+                                            return AboutNikeShoePage(
+                                              index,
+                                              isPopular: true,
+                                            );
                                           },
                                         ));
                                       },
@@ -481,7 +500,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                           );
                                         },
                                         child: Image.asset(
-                                           Shoes[index].imgAdd!,
+                                          Shoes[index].imgAdd!,
                                           height: 90,
                                         ),
                                       ),

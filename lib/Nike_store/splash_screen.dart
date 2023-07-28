@@ -1,10 +1,15 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
+import 'package:authentication_pages/Nike_store/authentication/login.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'homePage_NikeStore.dart';
 
 class SplashScreenPage extends StatefulWidget {
+    static const String KEYLOGIN = 'login';
   const SplashScreenPage({super.key});
 
   @override
@@ -22,12 +27,13 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   double translateX = 0.0;
   double translateY = 0.0;
   double myWidth = 0.0;
-
+  bool isLoggedIn = false;
   @override
 
   //--------------Animation Controllers----------------------//
   void initState() {
-    iconController = AnimationController(vsync: this,duration: const Duration(seconds: 1));
+    iconController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
     shoeController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     nameController =
@@ -41,8 +47,14 @@ class _SplashScreenPageState extends State<SplashScreenPage>
       setState(() {});
     });
     super.initState();
-  }
 
+    checkLoginStatus();
+  }
+  Future<void> checkLoginStatus() async
+  {
+    SharedPreferences pref =await SharedPreferences.getInstance();
+    isLoggedIn = pref.getBool(SplashScreenPage.KEYLOGIN)?? false;
+  }
   @override
   //--------------------Dispose Animation-------------------//
   void dispose() {
@@ -86,7 +98,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 ],
               ),
             ),
-           //------------Front shoe Image--------------//
+            //------------Front shoe Image--------------//
             AnimatedBuilder(
               animation: shoeController.view,
               builder: (context, child) {
@@ -98,7 +110,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
               child: Image.asset('assets/Images/nike_store/splash_screen.png'),
             ),
             const SizedBox(height: 20),
-           //---------------Nike slogan--------------//
+            //---------------Nike slogan--------------//
             AnimatedBuilder(
               animation: nameAnimation,
               builder: (context, child) {
@@ -130,7 +142,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 ],
               ),
             ),
-           //--------------About and off------------//
+            //--------------About and off------------//
             const SizedBox(height: 30),
             AnimatedOpacity(
               opacity: aboutOpacty,
@@ -159,10 +171,22 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                     return const NikeHomePage();
-                    },));
+                  onTap: () async {
+                    var pref = await SharedPreferences.getInstance();
+                    if (!isLoggedIn) {
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) {
+                        return  LoginPage();
+                      },
+                    ));
+                   
+                    }else{
+                      Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const NikeHomePage();
+                      },
+                    ));
+                    }
                   },
                   child: Row(
                     children: [
@@ -179,7 +203,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                           child: myWidth > 0.0
-                              ? const Icon(Icons.check, color: Colors.black, size: 38)
+                              ? const Icon(Icons.check,
+                                  color: Colors.black, size: 38)
                               : const Icon(
                                   Icons.keyboard_arrow_right_sharp,
                                   size: 38,
