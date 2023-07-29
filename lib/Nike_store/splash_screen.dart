@@ -172,7 +172,6 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 ),
                 child: InkWell(
                   onTap: () async {
-                    var pref = await SharedPreferences.getInstance();
                     if (!isLoggedIn) {
                     Navigator.pushReplacement(context, MaterialPageRoute(
                       builder: (context) {

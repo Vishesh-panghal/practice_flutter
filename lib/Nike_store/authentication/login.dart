@@ -27,12 +27,13 @@ class _LoginPageState extends State<LoginPage> {
 
   void setCount() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-
     widget.getCount = (pref.getInt("Counter") ?? 0) + 1;
-    pref.setInt("Counter", widget.getCount);
+    int newCount = (widget.getCount)%11;
+    pref.setInt("Counter", newCount);
     setState(() {
+      widget.getCount = newCount;
       widget.colorm =
-          (widget.getCount % 5 == 0) ? Colors.greenAccent : Colors.black;
+          (newCount % 5 == 0) ? Colors.greenAccent : Colors.black;
     });
   }
 
@@ -226,12 +227,6 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 50),
                     Text(
                         'You visited this page ${widget.getCount} ${widget.getCount == 1 ? 'time' : 'times'}.'),
-                    TextButton(
-                        onPressed: () {
-                          widget.getCount = 0;
-                          setState(() {});
-                        },
-                        child: Text('Reset count')),
                   ],
                 ),
               ),
