@@ -279,7 +279,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.amber),
                                               ),
-                                              SizedBox(height: 50),
+                                              SizedBox(height: 20),
                                               ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
                                                     backgroundColor:

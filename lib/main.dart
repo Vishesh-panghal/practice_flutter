@@ -3,11 +3,13 @@
 import 'package:authentication_pages/Exercise/BMI.dart';
 import 'package:authentication_pages/Exercise/contacts.dart';
 import 'package:flutter/material.dart';
+import 'Exercise/note.dart';
 import 'Exercise/rivePage.dart';
 import 'Explicit_animations/shoe/buyPage.dart';
 import 'Explicit_animations/shoe/shoe.dart';
 import 'Explicit_animations/shoe/shoeMainPage.dart';
 import 'Explicit_animations/tween_animation.dart';
+import 'Nike_store/about_Shoe/bag.dart';
 import 'Nike_store/authentication/login.dart';
 import 'Nike_store/homePage_NikeStore.dart';
 import 'Nike_store/splash_screen.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreenPage(),
+      home: NoteAppPage(),
     );
   }
 }
