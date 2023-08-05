@@ -52,7 +52,7 @@ class _DescriptionNotePageState extends State<DescriptionNotePage> {
               ],
             ),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 30),
           // Text()
         ],
       ),
