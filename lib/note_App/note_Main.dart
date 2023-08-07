@@ -182,7 +182,7 @@ class _NoteMainPageState extends State<NoteMainPage> {
                 },
               );
             },
-            child: Text('Add Note here'))
+            child: Text('Add Note here')),
       ]),
     );
   }
