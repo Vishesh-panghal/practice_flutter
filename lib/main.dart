@@ -23,6 +23,7 @@ import 'Exercise/tip_calcuator.dart';
 import 'Exercise/calculator.dart';
 import 'note_App/desc.dart';
 import 'note_App/note_Main.dart';
+import 'provider_practice/class_list.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: NoteMainPage(),
+      home: ClassListPage(),
     );
   }
 }

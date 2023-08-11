@@ -60,7 +60,7 @@ class _NoteMainPageState extends State<NoteMainPage> {
                 ),
               ),
               Container(
-                  height: 41,
+                  height: 40,
                   width: 35,
                   decoration: BoxDecoration(
                     border: Border.all(width: 0.2),

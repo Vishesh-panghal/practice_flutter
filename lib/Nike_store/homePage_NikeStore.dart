@@ -235,7 +235,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   width: 380,
                   child: ListView.builder(
                     // itemCount: Constants.newShoes.length,
-                    itemCount: Shoes.length,
+                    itemCount: newShoe.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       //--------Main Row Text and Image-----------//
@@ -272,7 +272,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                 ),
                                               ),
                                               Text(
-                                                Shoes[index].name!,
+                                                newShoe[index].name!,
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 22,
@@ -337,7 +337,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                           );
                                         },
                                         child: Image.asset(
-                                          Shoes[index].imgAdd!,
+                                          newShoe[index].imgAdd!,
                                           height: 90,
                                         ),
                                       ),
@@ -393,7 +393,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                   height: 230,
                   width: 380,
                   child: ListView.builder(
-                    itemCount: Constants.popularShoes.length,
+                    itemCount: popularShoe.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Row(
@@ -429,7 +429,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                                 ),
                                               ),
                                               Text(
-                                                Shoes[index].name!,
+                                                popularShoe[index].name!,
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 22,
@@ -500,7 +500,7 @@ class _NikeHomePageState extends State<NikeHomePage>
                                           );
                                         },
                                         child: Image.asset(
-                                          Shoes[index].imgAdd!,
+                                          popularShoe[index].imgAdd!,
                                           height: 90,
                                         ),
                                       ),
