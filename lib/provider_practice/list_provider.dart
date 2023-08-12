@@ -8,7 +8,6 @@ class ListDataProvider extends ChangeNotifier {
   }
 
   //Events:-
-
 //Add data to List:-
   addData(Map<String, dynamic> newData) {
     _mList.add(newData);

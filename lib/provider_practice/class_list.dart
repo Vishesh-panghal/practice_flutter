@@ -1,28 +1,16 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'list_provider.dart';
 
-
- void main() {
-  runApp( MyClassData());
-}
-class MyClassData extends StatelessWidget {
-  const MyClassData({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: ClassListPage(),
-    );
-  }
-}
 class ClassListPage extends StatelessWidget {
-  const ClassListPage({super.key});
+  ClassListPage({super.key});
+
+  var UpdatednameController = TextEditingController();
+  var nameController = TextEditingController();
+  var UpdatedclassController = TextEditingController();
+  var classController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,31 +28,133 @@ class ClassListPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             Divider(),
-            Container(
-              // color: Colors.blueGrey,
-              height: 700,
-              // child: ListView.builder(
-              //   itemBuilder: (context, index) {
-              //     return Container();
-              //   },
-              // ),
+            Consumer<ListDataProvider>(
+              builder: (_, provider, __) {
+                List<Map<String, dynamic>> data = provider.getList();
+                return SizedBox(
+                  height: 700,
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          UpdatednameController.text = data[index]['Name'];
+                          UpdatedclassController.text = data[index]['Class'];
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (_) {
+                                return Container(
+                                  height: 250,
+                                  child: Column(
+                                    children: [
+                                      Text('Update Data'),
+                                      TextField(
+                                        controller: UpdatednameController,
+                                      ),
+                                      SizedBox(height: 11),
+                                      TextField(
+                                        controller: UpdatedclassController,
+                                      ),
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            var dataToBeUpdated = {
+                                              'Name': UpdatednameController.text
+                                                  .toString(),
+                                              'Class': UpdatedclassController
+                                                  .text
+                                                  .toString(),
+                                            };
+
+                                            context
+                                                .read<ListDataProvider>()
+                                                .updateData(
+                                                    dataToBeUpdated, index);
+                                          },
+                                          child: Text('Update')),
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                        child: ListTile(
+                          title: Text(
+                            '${data[index]['Name']}',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          subtitle: Text(
+                            '${data[index]['Class']}',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                            ),
+                          ),
+                          trailing: InkWell(
+                            onTap: () {
+                              context
+                                  .read<ListDataProvider>()
+                                  .removeData(index);
+                            },
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.red.shade700,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: LinearBorder(
-                  top: LinearBorderEdge(size: 0.5),
-                ),
-              ),
-              onPressed: () {},
-              child: Text(
-                'Add Student',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return SizedBox(
+                        height: 300,
+                        width: double.infinity,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 10),
+                            Text(
+                              'Add Student',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Divider(),
+                            TextField(
+                              controller: nameController,
+                            ),
+                            TextField(
+                              controller: classController,
+                            ),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Map<String, dynamic> newData = {
+                                    "Name": nameController.text.toString(),
+                                    "Class": classController.text.toString(),
+                                  };
+                                  context
+                                      .read<ListDataProvider>()
+                                      .addData(newData);
+                                },
+                                child: Text('Add')),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Text('Add Data'))
           ],
         ),
       ),

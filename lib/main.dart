@@ -3,6 +3,7 @@
 import 'package:authentication_pages/Exercise/BMI.dart';
 import 'package:authentication_pages/Exercise/contacts.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'Exercise/note.dart';
 import 'Exercise/rivePage.dart';
 import 'Explicit_animations/shoe/buyPage.dart';
@@ -24,8 +25,12 @@ import 'Exercise/calculator.dart';
 import 'note_App/desc.dart';
 import 'note_App/note_Main.dart';
 import 'provider_practice/class_list.dart';
+import 'provider_practice/list_provider.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => ListDataProvider(),
+      child: MyApp(),
+    ),);
 }
 
 class MyApp extends StatelessWidget {
