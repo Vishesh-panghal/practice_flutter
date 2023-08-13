@@ -34,7 +34,7 @@ class ListDatabase {
       version: 1,
       onCreate: (db, version) {
         return db.execute(
-            'Create table $NOTE_TABLE ($NOTE_COLUMN_ID integer primary key autoincement),$NOTE_COLUMN_TITLE text,$NOTE_COLUMN_CLASS text');
+            'CREATE TABLE $NOTE_TABLE ($NOTE_COLUMN_ID INTEGER PRIMARY KEY  AUTOINCREMENT),$NOTE_COLUMN_TITLE TEXT,$NOTE_COLUMN_CLASS TEXT');
       },
     );
   }

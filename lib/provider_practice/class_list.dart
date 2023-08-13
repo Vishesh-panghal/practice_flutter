@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:authentication_pages/provider_practice/student_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'list_provider.dart';
@@ -30,7 +31,7 @@ class ClassListPage extends StatelessWidget {
             Divider(),
             Consumer<ListDataProvider>(
               builder: (_, provider, __) {
-                List<Map<String, dynamic>> data = provider.getList();
+                List<studentModal> data = provider.getList();
                 return SizedBox(
                   height: 700,
                   child: ListView.builder(
@@ -38,8 +39,8 @@ class ClassListPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          UpdatednameController.text = data[index]['Name'];
-                          UpdatedclassController.text = data[index]['Class'];
+                          UpdatednameController.text = data[index].title;
+                          UpdatedclassController.text = data[index].cls;
                           showModalBottomSheet(
                               context: context,
                               builder: (_) {
@@ -68,7 +69,9 @@ class ClassListPage extends StatelessWidget {
                                             context
                                                 .read<ListDataProvider>()
                                                 .updateData(
-                                                    dataToBeUpdated, index);
+                                                    studentModal.fromMap(
+                                                        dataToBeUpdated),
+                                                    index);
                                           },
                                           child: Text('Update')),
                                     ],
@@ -78,7 +81,7 @@ class ClassListPage extends StatelessWidget {
                         },
                         child: ListTile(
                           title: Text(
-                            '${data[index]['Name']}',
+                            '${data[index].title}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               color: Colors.white,
@@ -87,7 +90,7 @@ class ClassListPage extends StatelessWidget {
                             ),
                           ),
                           subtitle: Text(
-                            '${data[index]['Class']}',
+                            '${data[index].cls}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               color: Colors.white,
@@ -138,16 +141,17 @@ class ClassListPage extends StatelessWidget {
                               controller: classController,
                             ),
                             ElevatedButton(
-                                onPressed: () {
-                                  Map<String, dynamic> newData = {
-                                    "Name": nameController.text.toString(),
-                                    "Class": classController.text.toString(),
-                                  };
-                                  context
-                                      .read<ListDataProvider>()
-                                      .addData(newData);
-                                },
-                                child: Text('Add')),
+                              onPressed: () {
+                                Map<String, dynamic> newData = {
+                                  "Name": nameController.text.toString(),
+                                  "Class": classController.text.toString(),
+                                };
+                                context
+                                    .read<ListDataProvider>()
+                                    .addData(studentModal.fromMap(newData));
+                              },
+                              child: Text('Add'),
+                            ),
                           ],
                         ),
                       );

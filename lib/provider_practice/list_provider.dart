@@ -1,17 +1,28 @@
+import 'package:authentication_pages/provider_practice/list_database.dart';
+import 'package:authentication_pages/provider_practice/student_model.dart';
 import 'package:flutter/material.dart';
 
 class ListDataProvider extends ChangeNotifier {
-  final List<Map<String, dynamic>> _mList = [];
+  List<studentModal> _mList = [];
+  ListDatabase db = ListDatabase.db;
+  // ListDataProvider({this.db});
 
-  List<Map<String, dynamic>> getList() {
+  fetchList() async {
+    var _mList = await db.fetchAllList();
+    notifyListeners();
+  }
+
+  List<studentModal> getList() {
     return _mList;
   }
 
   //Events:-
 //Add data to List:-
-  addData(Map<String, dynamic> newData) {
-    _mList.add(newData);
-    notifyListeners();
+  addData(studentModal newData) async {
+    var check = await db.addList(newData);
+    if (check) {
+      fetchList();
+    }
   }
 //Remove data from List:-
 
@@ -22,13 +33,13 @@ class ListDataProvider extends ChangeNotifier {
   }
 
 // ⚫️ This function works with where function:-
-// drawback of this function is it also duplicate data of same name and class...
+// drawback of this function is it also delete duplicate data of same name and class...
   // removeDatahere(Map<String, dynamic> mData) {
   //   _mList.removeWhere((element) => element == mData);
   //   notifyListeners();
   // }
 
-  updateData(Map<String, dynamic> mData, int index) {
+  updateData(studentModal mData, int index) {
     _mList[index] = mData;
     notifyListeners();
   }
