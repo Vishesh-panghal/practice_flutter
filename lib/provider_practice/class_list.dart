@@ -16,7 +16,7 @@ class ClassListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(202, 0, 0, 0),
       body: SafeArea(
         child: Column(
           children: [
