@@ -8,15 +8,15 @@ import 'list_provider.dart';
 class ClassListPage extends StatelessWidget {
   ClassListPage({super.key});
 
-  var UpdatednameController = TextEditingController();
+  var updatednameController = TextEditingController();
   var nameController = TextEditingController();
-  var UpdatedclassController = TextEditingController();
+  var updatedclassController = TextEditingController();
   var classController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(202, 0, 0, 0),
+      backgroundColor:  Colors.black,
       body: SafeArea(
         child: Column(
           children: [
@@ -39,29 +39,29 @@ class ClassListPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          UpdatednameController.text = data[index].title;
-                          UpdatedclassController.text = data[index].cls;
+                          updatednameController.text = data[index].title;
+                          updatedclassController.text = data[index].cls;
                           showModalBottomSheet(
                               context: context,
                               builder: (_) {
-                                return Container(
+                                return SizedBox(
                                   height: 250,
                                   child: Column(
                                     children: [
                                       Text('Update Data'),
                                       TextField(
-                                        controller: UpdatednameController,
+                                        controller: updatednameController,
                                       ),
                                       SizedBox(height: 11),
                                       TextField(
-                                        controller: UpdatedclassController,
+                                        controller: updatedclassController,
                                       ),
                                       ElevatedButton(
                                           onPressed: () {
                                             var dataToBeUpdated = {
-                                              'Name': UpdatednameController.text
+                                              'Name': updatednameController.text
                                                   .toString(),
-                                              'Class': UpdatedclassController
+                                              'Class': updatedclassController
                                                   .text
                                                   .toString(),
                                             };
@@ -81,7 +81,7 @@ class ClassListPage extends StatelessWidget {
                         },
                         child: ListTile(
                           title: Text(
-                            '${data[index].title}',
+                            data[index].title,
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               color: Colors.white,
@@ -90,7 +90,7 @@ class ClassListPage extends StatelessWidget {
                             ),
                           ),
                           subtitle: Text(
-                            '${data[index].cls}',
+                            data[index].cls,
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               color: Colors.white,
