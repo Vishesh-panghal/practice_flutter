@@ -27,10 +27,11 @@ import 'note_App/note_Main.dart';
 import 'provider_practice/class_list.dart';
 import 'provider_practice/list_provider.dart';
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => ListDataProvider(),
-      child: MyApp(),
-    ),);
+  // runApp(ChangeNotifierProvider(
+  //     create: (context) => ListDataProvider(),
+  //     child: MyApp(),
+  //   ),);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ClassListPage(),
+      home: SplashScreenPage(),
     );
   }
 }
