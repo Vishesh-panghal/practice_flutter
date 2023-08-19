@@ -16,7 +16,7 @@ class ClassListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Colors.black,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
           children: [
@@ -32,6 +32,7 @@ class ClassListPage extends StatelessWidget {
             Consumer<ListDataProvider>(
               builder: (_, provider, __) {
                 List<studentModal> data = provider.getList();
+                print(data.length);
                 return SizedBox(
                   height: 700,
                   child: ListView.builder(
@@ -58,20 +59,16 @@ class ClassListPage extends StatelessWidget {
                                       ),
                                       ElevatedButton(
                                           onPressed: () {
-                                            var dataToBeUpdated = {
-                                              'Name': updatednameController.text
-                                                  .toString(),
-                                              'Class': updatedclassController
-                                                  .text
-                                                  .toString(),
-                                            };
-
                                             context
                                                 .read<ListDataProvider>()
                                                 .updateData(
-                                                    studentModal.fromMap(
-                                                        dataToBeUpdated),
-                                                    index);
+                                                    studentModal(
+                                                      title: nameController.text
+                                                          .toString(),
+                                                      cls: classController.text
+                                                          .toString(),
+                                                    ),
+                                                    data[index].id!);
                                           },
                                           child: Text('Update')),
                                     ],
@@ -100,7 +97,7 @@ class ClassListPage extends StatelessWidget {
                             onTap: () {
                               context
                                   .read<ListDataProvider>()
-                                  .removeData(index);
+                                  .removeData(data[index].id!);
                             },
                             child: Icon(
                               Icons.delete,
@@ -142,13 +139,12 @@ class ClassListPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Map<String, dynamic> newData = {
-                                  "Name": nameController.text.toString(),
-                                  "Class": classController.text.toString(),
-                                };
                                 context
                                     .read<ListDataProvider>()
-                                    .addData(studentModal.fromMap(newData));
+                                    .addData(studentModal(
+                                      title: nameController.text.toString(),
+                                      cls: classController.text.toString(),
+                                    ));
                               },
                               child: Text('Add'),
                             ),

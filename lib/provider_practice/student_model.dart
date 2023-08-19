@@ -11,9 +11,9 @@ class studentModal {
 
   factory studentModal.fromMap(Map<String, dynamic> map) {
     return studentModal(
-      id: map[ListDatabase.NOTE_COLUMN_ID] as int?,
-      title: map[ListDatabase.NOTE_COLUMN_TITLE] as String? ?? '',
-      cls: map[ListDatabase.NOTE_COLUMN_CLASS] as String? ?? '',
+      id: map[ListDatabase.NOTE_COLUMN_ID],
+      title: map[ListDatabase.NOTE_COLUMN_TITLE],
+      cls: map[ListDatabase.NOTE_COLUMN_CLASS],
     );
   }
 

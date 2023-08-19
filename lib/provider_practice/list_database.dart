@@ -34,17 +34,14 @@ class ListDatabase {
       version: 1,
       onCreate: (db, version) {
         return db.execute(
-            'CREATE TABLE $NOTE_TABLE ($NOTE_COLUMN_ID INTEGER PRIMARY KEY  AUTOINCREMENT),$NOTE_COLUMN_TITLE TEXT,$NOTE_COLUMN_CLASS TEXT');
+            'CREATE TABLE $NOTE_TABLE ($NOTE_COLUMN_ID INTEGER PRIMARY KEY  AUTOINCREMENT,$NOTE_COLUMN_TITLE TEXT,$NOTE_COLUMN_CLASS TEXT)');
       },
     );
   }
 
   Future<bool> addList(studentModal stdnt) async {
     var db = await getDB();
-    int rowsEffected = await db.insert(NOTE_TABLE, {
-      ListDatabase.NOTE_COLUMN_TITLE: stdnt.title,
-      ListDatabase.NOTE_COLUMN_CLASS: stdnt.cls,
-    });
+    int rowsEffected = await db.insert(NOTE_TABLE, stdnt.toMap());
     if (rowsEffected > 0) {
       return true;
     } else {

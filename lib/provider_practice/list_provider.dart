@@ -8,7 +8,7 @@ class ListDataProvider extends ChangeNotifier {
   // ListDataProvider({this.db});
 
   fetchList() async {
-    var _mList = await db.fetchAllList();
+     _mList = await db.fetchAllList();
     notifyListeners();
   }
 
@@ -22,13 +22,17 @@ class ListDataProvider extends ChangeNotifier {
     var check = await db.addList(newData);
     if (check) {
       fetchList();
+      
     }
   }
 //Remove data from List:-
 
 // ⚫️ This function works with index:-
-  removeData(int index) {
-    _mList.removeAt(index);
+  removeData(int index) async{
+    var check = await db.deleteList(index);
+    if (check) {
+      fetchList();
+    }
     notifyListeners();
   }
 
