@@ -63,12 +63,13 @@ class ClassListPage extends StatelessWidget {
                                                 .read<ListDataProvider>()
                                                 .updateData(
                                                     studentModal(
-                                                      title: nameController.text
+                                                      id: data[index].id,
+                                                      title: updatednameController.text
                                                           .toString(),
-                                                      cls: classController.text
+                                                      cls: updatedclassController.text
                                                           .toString(),
                                                     ),
-                                                    data[index].id!);
+                                                    );
                                           },
                                           child: Text('Update')),
                                     ],

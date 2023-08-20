@@ -43,8 +43,13 @@ class ListDataProvider extends ChangeNotifier {
   //   notifyListeners();
   // }
 
-  updateData(studentModal mData, int index) {
-    _mList[index] = mData;
-    notifyListeners();
+  updateData(studentModal mData) async{
+    // _mList[index] = mData;
+    var check = await db.updateList(mData);
+    print(check);
+    if (check) {
+      fetchList();
+    }
+    
   }
 }
