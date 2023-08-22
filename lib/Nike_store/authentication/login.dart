@@ -28,12 +28,11 @@ class _LoginPageState extends State<LoginPage> {
   void setCount() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     widget.getCount = (pref.getInt("Counter") ?? 0) + 1;
-    int newCount = (widget.getCount)%11;
+    int newCount = (widget.getCount) % 11;
     pref.setInt("Counter", newCount);
     setState(() {
       widget.getCount = newCount;
-      widget.colorm =
-          (newCount % 5 == 0) ? Colors.greenAccent : Colors.black;
+      widget.colorm = (newCount % 5 == 0) ? Colors.greenAccent : Colors.black;
     });
   }
 
@@ -224,9 +223,6 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.blue,
                       ),
                     ),
-                    SizedBox(height: 50),
-                    Text(
-                        'You visited this page ${widget.getCount} ${widget.getCount == 1 ? 'time' : 'times'}.'),
                   ],
                 ),
               ),
