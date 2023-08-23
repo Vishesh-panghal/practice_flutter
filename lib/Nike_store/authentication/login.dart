@@ -1,14 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, use_build_context_synchronously,use_key_in_widget_constructors, must_be_immutable
 
+import 'package:authentication_pages/Nike_store/authentication/signUp.dart';
 import 'package:authentication_pages/Nike_store/homePage_NikeStore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import '../splash_screen.dart';
 
 class LoginPage extends StatefulWidget {
-  var getCount = 0;
-  Color? colorm;
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -18,23 +16,6 @@ class _LoginPageState extends State<LoginPage> {
 
   var mailController = TextEditingController();
   var passwordController = TextEditingController();
-
-  @override
-  void initState() {
-    setCount();
-    super.initState();
-  }
-
-  void setCount() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    widget.getCount = (pref.getInt("Counter") ?? 0) + 1;
-    int newCount = (widget.getCount) % 11;
-    pref.setInt("Counter", newCount);
-    setState(() {
-      widget.getCount = newCount;
-      widget.colorm = (newCount % 5 == 0) ? Colors.greenAccent : Colors.black;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        // color: Color.fromARGB(185, 0, 0, 0),
-                        color: widget.colorm,
+                        color: Color.fromARGB(185, 0, 0, 0),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(17),
                             topRight: Radius.circular(17)),
@@ -216,11 +196,20 @@ class _LoginPageState extends State<LoginPage> {
                       "Don't have an account?",
                       style: TextStyle(fontFamily: 'Poppins'),
                     ),
-                    Text(
-                      'SignUp',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.blue,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return SignupPage();
+                          },
+                        ));
+                      },
+                      child: Text(
+                        'SignUp',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Colors.blue,
+                        ),
                       ),
                     ),
                   ],

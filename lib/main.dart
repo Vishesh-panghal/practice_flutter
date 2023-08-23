@@ -1,4 +1,5 @@
 import 'package:authentication_pages/BLoc_Exercide/InternetConnectivity/BLoc/bloc/bloc_is_connected.dart';
+import 'package:authentication_pages/Nike_store/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +33,7 @@ class MyNikeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return   MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SplashScreenPage(),
     );
   }
 }
