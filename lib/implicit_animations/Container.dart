@@ -18,7 +18,7 @@ class _AnimateContainerState extends State<AnimateContainer> {
 
   @override
   void initState() {
-     
+    super.initState();
     Timer(Duration(seconds: 3), () {
       mHeight = 400.0;
       mWidth = 200.0;
@@ -27,8 +27,8 @@ class _AnimateContainerState extends State<AnimateContainer> {
         setState(() {});
       }
     });
-    super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,10 @@ class _AnimateContainerState extends State<AnimateContainer> {
                 height: mHeight,
                 width: mWidth,
                 duration: Duration(seconds: 3),
-                child: Text('Container is changing its Size',style: TextStyle(fontSize: 22,color: Colors.black),),
+                child: Text(
+                  'Container is changing its Size',
+                  style: TextStyle(fontSize: 22, color: Colors.black),
+                ),
               ),
               SizedBox(height: 50),
               ElevatedButton(
