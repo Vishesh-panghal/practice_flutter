@@ -1,12 +1,12 @@
-import 'package:authentication_pages/BLoc_Exercide/InternetConnectivity/BLoc/bloc/bloc_is_connected.dart';
-import 'package:authentication_pages/Nike_store/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'Note App/homepage.dart';
 
-import 'BLoc_Exercide/InternetConnectivity/screens/netConn.dart';
-import 'Nike_store/authentication/login.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  // initlize Hive:-
+  await Hive.initFlutter();
+  var box = await Hive.openBox('TodoBox');
   runApp(const MyNikeApp());
 }
 
@@ -31,9 +31,13 @@ class MyNikeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+        primaryColor: Colors.amber,
+      ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreenPage(),
+      home: NoteHomepage(),
     );
   }
 }
