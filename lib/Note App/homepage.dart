@@ -6,14 +6,14 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'utlis/todo_tile.dart';
 
-class NoteHomepage extends StatefulWidget {
-  NoteHomepage({super.key});
+class TODOHomepage extends StatefulWidget {
+  const TODOHomepage({super.key});
 
   @override
-  State<NoteHomepage> createState() => _NoteHomepageState();
+  State<TODOHomepage> createState() => _TODOHomepageState();
 }
 
-class _NoteHomepageState extends State<NoteHomepage> {
+class _TODOHomepageState extends State<TODOHomepage> {
   // reference hive box:-
 
   final _myBox = Hive.box('TodoBox');
@@ -21,12 +21,12 @@ class _NoteHomepageState extends State<NoteHomepage> {
 
   @override
   void initState() {
-   db.loadData();
+    db.loadData();
     super.initState();
   }
 
-
   final TextEditingController _addTask = TextEditingController();
+  final TextEditingController _updateTask = TextEditingController();
 
   void checkBoxChanged(bool? vlaue, int index) {
     setState(() {
@@ -48,7 +48,77 @@ class _NoteHomepageState extends State<NoteHomepage> {
     setState(() {
       db.todoList.removeAt(index);
     });
-     db.updateDatabase();
+    db.updateDatabase();
+  }
+
+  updateTask(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        String editedTask = db.todoList[index][0];
+        return AlertDialog(
+          backgroundColor: Colors.amber.shade300,
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          content: SizedBox(
+            height: 200,
+            width: 300,
+            child: Column(
+              children: [
+                const Text(
+                  'Edit Task',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Divider(thickness: 2),
+                const SizedBox(height: 5),
+                TextField(
+                  controller: TextEditingController(text: editedTask),
+                  onChanged: (newValue) {
+                    editedTask = newValue;
+                  },
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    label: Text(
+                      'Update task 🔻',
+                      style:
+                          TextStyle(fontFamily: 'Poppins', color: Colors.black),
+                    ),
+                    focusColor: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MyButton(
+                      title: 'Update',
+                      onPressed: () {
+                        db.todoList[index] = [editedTask, false];
+                        db.updateDatabase();
+                        Navigator.of(context).pop();
+                        setState(() {});
+                      },
+                    ),
+                    MyButton(
+                      title: 'Cancel',
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   void createNewTask() {
@@ -57,6 +127,9 @@ class _NoteHomepageState extends State<NoteHomepage> {
       builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.amber.shade300,
+          shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
           content: SizedBox(
             height: 200,
             width: 300,
@@ -161,17 +234,12 @@ class _NoteHomepageState extends State<NoteHomepage> {
                         right: 15.0,
                         left: 15.0,
                       ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: ToDoTilePage(
-                          taskName: db.todoList[index][0],
-                          taskComplete: db.todoList[index][1],
-                          onChanged: (value) => checkBoxChanged(value, index),
-                          deleteFunction: (value) => deleteTask(index),
-                        ),
+                      child: ToDoTilePage(
+                        taskName: db.todoList[index][0],
+                        taskComplete: db.todoList[index][1],
+                        onChanged: (value) => checkBoxChanged(value, index),
+                        deleteFunction: (value) => deleteTask(index),
+                        updateFunction: (value) => updateTask(index),
                       ),
                     );
                   },

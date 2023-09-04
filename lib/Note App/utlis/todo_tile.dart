@@ -8,12 +8,14 @@ class ToDoTilePage extends StatelessWidget {
   final bool taskComplete;
   Function(bool?)? onChanged;
   Function(BuildContext)? deleteFunction;
+  Function(BuildContext)? updateFunction;
   ToDoTilePage({
     super.key,
     required this.taskName,
     required this.taskComplete,
     required this.onChanged,
     required this.deleteFunction,
+    required this.updateFunction,
   });
 
   @override
@@ -24,30 +26,37 @@ class ToDoTilePage extends StatelessWidget {
           onPressed: deleteFunction,
           icon: Icons.delete,
           backgroundColor: Colors.red.shade300,
-        )
+        ),
+        SlidableAction(
+          onPressed: updateFunction,
+          icon: Icons.update,
+          backgroundColor: Colors.blue,
+        ),
       ]),
-      child: Padding(
+      child: Container(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Checkbox(
-              value: taskComplete,
-              onChanged: onChanged,
-              activeColor: Colors.black,
+        decoration: BoxDecoration(
+          color: Colors.amber,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+          title: Text(
+            taskName,
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 18,
+              color: Colors.black,
+              decoration: taskComplete
+                  ? TextDecoration.lineThrough
+                  : TextDecoration.none,
             ),
-            const SizedBox(width: 40),
-            Text(
-              taskName,
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
-                color: Colors.black,
-                decoration: taskComplete
-                    ? TextDecoration.lineThrough
-                    : TextDecoration.none,
-              ),
-            ),
-          ],
+          ),
+          trailing: Checkbox(
+            value: taskComplete,
+            onChanged: onChanged,
+            activeColor: Colors.black,
+          ),
         ),
       ),
     );

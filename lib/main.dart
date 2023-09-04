@@ -3,6 +3,8 @@ import 'Note App/homepage.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'Note App/splashScreen.dart';
+
 void main() async {
   // initlize Hive:-
   await Hive.initFlutter();
@@ -37,7 +39,7 @@ class MyNikeApp extends StatelessWidget {
         primaryColor: Colors.amber,
       ),
       debugShowCheckedModeBanner: false,
-      home: NoteHomepage(),
+      home:const SplashScreenPage(),
     );
   }
 }
