@@ -4,13 +4,17 @@ import 'Note App/homepage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'Note App/splashScreen.dart';
+import 'auth/login_page.dart';
 
-void main() async {
-  // initlize Hive:-
-  await Hive.initFlutter();
-  var box = await Hive.openBox('TodoBox');
+void main() {
   runApp(const MyNikeApp());
 }
+// void main() async {
+//   // initlize Hive:-
+//   await Hive.initFlutter();
+//   var box = await Hive.openBox('TodoBox');
+//   runApp(const MyNikeApp());
+// }
 
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
@@ -39,7 +43,7 @@ class MyNikeApp extends StatelessWidget {
         primaryColor: Colors.amber,
       ),
       debugShowCheckedModeBanner: false,
-      home:const SplashScreenPage(),
+      home: LoginPage(),
     );
   }
 }
