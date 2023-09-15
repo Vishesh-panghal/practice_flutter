@@ -1,4 +1,4 @@
-import 'package:authentication_pages/API_prectice/cart_modal/user_modal.dart';
+import 'package:authentication_pages/API_%20practice/cart_modal/user_modal.dart';
 
 class DataModal {
   int total;

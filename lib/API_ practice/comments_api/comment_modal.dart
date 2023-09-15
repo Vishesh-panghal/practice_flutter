@@ -1,4 +1,4 @@
-import 'package:authentication_pages/API_prectice/quote_api/quote.dart';
+import 'package:authentication_pages/API_%20practice/quote_api/Data/quote.dart';
 
 class CommmentModal {
   int id;

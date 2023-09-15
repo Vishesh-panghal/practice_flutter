@@ -1,4 +1,4 @@
-import 'package:authentication_pages/API_prectice/comments_api/comment_modal.dart';
+import 'package:authentication_pages/API_%20practice/comments_api/comment_modal.dart';
 
 class DataModal {
   int total;

@@ -1,6 +1,6 @@
-import 'package:authentication_pages/API_prectice/user_api/bank.dart';
-import 'package:authentication_pages/API_prectice/user_api/company_modal.dart';
-import 'package:authentication_pages/API_prectice/user_api/coordinates_modal.dart';
+import 'package:authentication_pages/API_%20practice/user_api/bank.dart';
+import 'package:authentication_pages/API_%20practice/user_api/company_modal.dart';
+import 'package:authentication_pages/API_%20practice/user_api/coordinates_modal.dart';
 
 class UserModal {
   int id;

@@ -1,4 +1,4 @@
-import 'package:authentication_pages/API_prectice/todo_modal/todo_modal.dart';
+import 'package:authentication_pages/API_%20practice/todo_modal/todo_modal.dart';
 
 class DataModal {
   int total;

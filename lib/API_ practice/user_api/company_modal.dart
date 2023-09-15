@@ -1,4 +1,4 @@
-import 'package:authentication_pages/API_prectice/user_api/coordinates_modal.dart';
+import 'package:authentication_pages/API_%20practice/user_api/coordinates_modal.dart';
 
 class CompanyModal {
   String department;

@@ -1,10 +1,10 @@
-import 'package:authentication_pages/API_prectice/user_api/user_modal.dart';
+import 'package:authentication_pages/API_%20practice/product_modal/product_modal.dart';
 
 class DataModal {
   int limit;
   int skip;
   int total;
-  List<UserModal> users;
+  List<ProductModal> users;
 
   DataModal({
     required this.limit,
@@ -14,9 +14,9 @@ class DataModal {
   });
 
   factory DataModal.fromJson(Map<String, dynamic> json) {
-    List<UserModal> mUsers = [];
+    List<ProductModal> mUsers = [];
     for (Map<String, dynamic> eachUsr in json['users']) {
-      mUsers.add(UserModal.fromJson(eachUsr));
+      mUsers.add(ProductModal.fromJson(eachUsr));
     }
     return DataModal(
       limit: json['limit'],

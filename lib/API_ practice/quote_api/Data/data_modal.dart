@@ -1,16 +1,16 @@
-import 'package:authentication_pages/API_prectice/quote_api/quote.dart';
+import 'package:authentication_pages/API_%20practice/quote_api/Data/quote.dart';
 
 class QuoteModal {
-  int limit;
-  int skip;
-  int total;
-  List<UserModal> quotes;
+  int? limit;
+  int? skip;
+  int? total;
+  List<UserModal>? quotes;
 
   QuoteModal(
-      {required this.limit,
-      required this.skip,
-      required this.total,
-      required this.quotes});
+      { this.limit,
+       this.skip,
+       this.total,
+       this.quotes});
 
   factory QuoteModal.fromJson(Map<String, dynamic> json) {
     List<UserModal> mQuotes = [];
