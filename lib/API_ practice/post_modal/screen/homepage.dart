@@ -14,7 +14,14 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
-  late Future<DataModal> data ;
+  late Future<DataModal> data;
+
+  @override
+  void initState() {
+    data = Future.value(DataModal());
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +55,8 @@ class _PostScreenState extends State<PostScreen> {
               ),
               InkWell(
                 onTap: () {
-                  data = getPostData() ;
+                  data = getPostData();
+                  setState(() {});
                 },
                 child: Icon(
                   Icons.post_add,
@@ -65,7 +73,7 @@ class _PostScreenState extends State<PostScreen> {
           ),
           SizedBox(height: 50),
           FutureBuilder(
-            future: getPostData(),
+            future: data,
             builder: (cotext, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
@@ -81,19 +89,26 @@ class _PostScreenState extends State<PostScreen> {
                     ),
                   ),
                 );
-              } else if (snapshot.data != null) {
+              } else if (snapshot.data != null &&
+                  snapshot.data!.posts != null &&
+                  snapshot.data!.posts!.isNotEmpty) {
                 return Expanded(
                   child: ListView.builder(
-                    itemCount: snapshot.data!.posts!.length,
+                    itemCount: snapshot.data!.posts?.length,
                     itemBuilder: (context, index) {
+                      var newpost = snapshot.data!.posts?[index];
                       return Container(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        margin: EdgeInsets.symmetric(vertical: 8),
                         decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(12)),
                         child: ListTile(
                           leading: Text(
                             '${index + 1}',
                           ),
+                          title: Text('${newpost?.title}'),
+                          subtitle: Text('${newpost?.body}'),
                         ),
                       );
                     },
