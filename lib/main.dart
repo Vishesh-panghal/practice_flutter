@@ -12,23 +12,23 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'TODO App/splashScreen.dart';
 import 'auth/login_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          primaryColor: Colors.purpleAccent, primarySwatch: Colors.purple),
-      debugShowCheckedModeBanner: false,
-      home:  PostScreen(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: ThemeData(
+//           primaryColor: Colors.purpleAccent, primarySwatch: Colors.purple),
+//       debugShowCheckedModeBanner: false,
+//       home:  PostScreen(),
+//     );
+//   }
+// }
 
 
 
@@ -47,28 +47,28 @@ class MyApp extends StatelessWidget {
 
 
 // TODO App:- 🔻
-// void main() async {
-//   // initlize Hive:-
-//   await Hive.initFlutter();
-//   var box = await Hive.openBox('TodoBox');
-//   runApp(const MyApp());
-// }
+void main() async {
+  // initlize Hive:-
+  await Hive.initFlutter();
+  var box = await Hive.openBox('TodoBox');
+  runApp(const MyApp());
+}
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocProvider(
-//       create: (context) => InternetBloc(),
-//       child:  MaterialApp(
-//         theme: ThemeData(
-//           primarySwatch: Colors.amber,
-//           primaryColor: Colors.amber,
-//         ),
-//         debugShowCheckedModeBanner: false,
-//         home:const SplashScreenPage(),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => InternetBloc(),
+      child:  MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          primaryColor: Colors.amber,
+        ),
+        debugShowCheckedModeBanner: false,
+        home:const SplashScreenPage(),
+      ),
+    );
+  }
+}
