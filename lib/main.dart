@@ -30,22 +30,6 @@ import 'auth/login_page.dart';
 //   }
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // TODO App:- 🔻
 void main() async {
   // initlize Hive:-
@@ -61,13 +45,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => InternetBloc(),
-      child:  MaterialApp(
+      child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.amber,
           primaryColor: Colors.amber,
         ),
         debugShowCheckedModeBanner: false,
-        home:const SplashScreenPage(),
+        home: const SplashScreenPage(),
       ),
     );
   }
