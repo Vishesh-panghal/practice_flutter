@@ -89,6 +89,7 @@ class _PostScreenState extends State<PostScreen> {
                     ),
                   ),
                 );
+                
               } else if (snapshot.data != null &&
                   snapshot.data!.posts != null &&
                   snapshot.data!.posts!.isNotEmpty) {
