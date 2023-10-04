@@ -7,8 +7,6 @@ import 'API_ practice/post_modal/screen/homepage.dart';
 import 'BLoc_Exercide/InternetConnectivity/BLoc/bloc/bloc_is_connected.dart';
 import 'TODO App/homepage.dart';
 
-import 'package:hive_flutter/hive_flutter.dart';
-
 import 'TODO App/splashScreen.dart';
 import 'auth/login_page.dart';
 
@@ -32,9 +30,6 @@ import 'auth/login_page.dart';
 
 // TODO App:- 🔻
 void main() async {
-  // initlize Hive:-
-  await Hive.initFlutter();
-  var box = await Hive.openBox('TodoBox');
   runApp(const MyApp());
 }
 
