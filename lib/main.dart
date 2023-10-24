@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'API_ practice/post_modal/screen/homepage.dart';
 import 'BLoc_Exercide/InternetConnectivity/BLoc/bloc/bloc_is_connected.dart';
+import 'Music_app/music_homepage.dart';
 import 'TODO App/homepage.dart';
 
 import 'TODO App/splashScreen.dart';
@@ -38,16 +39,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => InternetBloc(),
-      child: MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.amber,
-          primaryColor: Colors.amber,
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const SplashScreenPage(),
-      ),
+    return const MaterialApp(
+      // theme: ThemeData(
+      //   primarySwatch: Colors.amber,
+      //   primaryColor: Colors.amber,
+      // ),
+      debugShowCheckedModeBanner: false,
+      home:  MusicHomepageScreen(),
     );
   }
 }
