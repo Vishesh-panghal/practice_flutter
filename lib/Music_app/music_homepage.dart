@@ -97,22 +97,30 @@ class _MusicHomepageScreenState extends State<MusicHomepageScreen> {
                 ],
               ),
               SizedBox(height: size.height * 0.07),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(child: Icon(Icons.volume_mute)),
-                  Expanded(
-                    flex: 8,
-                    child: ProgressBar(
-                      progress: Duration(seconds: 0),
-                      total: Duration(seconds: 100),
-                      thumbRadius: 0,
-                      barHeight: size.height * 0.01,
+              Container(
+                color: Colors.amber,
+                alignment: Alignment.center,
+                // padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: Icon(Icons.volume_mute)),  
+                    Expanded(
+                      flex: 8,
+                      child: ProgressBar(
+                        baseBarColor: Colors.grey,
+                        progressBarColor: Colors.black87,
+                        timeLabelLocation: TimeLabelLocation.none,
+                        progress: Duration(seconds: 0),
+                        total: Duration(seconds: 100),
+                        thumbRadius: 0,
+                        barHeight: size.height * 0.015,
+                      ),
                     ),
-                  ),
-                  Expanded(child: Icon(Icons.volume_up)),
-                ],
+                    Expanded(child: Icon(Icons.volume_up)),
+                  ],
+                ),
               ),
               SizedBox(height: size.height * 0.07),
               Row(
