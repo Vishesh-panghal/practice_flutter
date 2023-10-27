@@ -75,7 +75,7 @@ class _MusicHomepageScreenState extends State<MusicHomepageScreen> {
                   progressBarColor: Colors.black87,
                   barHeight: size.height * 0.009,
                   barCapShape: BarCapShape.round,
-                  baseBarColor: Colors.grey.shade300,
+                  baseBarColor: const Color.fromARGB(224, 224, 224, 224),
                 ),
               ),
               SizedBox(height: size.height * 0.03),
