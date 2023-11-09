@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       //   primaryColor: Colors.amber,
       // ),
       debugShowCheckedModeBanner: false,
-      home:  MusicHomepageScreen(),
+      home:  SplashScreenPage(),
     );
   }
 }
